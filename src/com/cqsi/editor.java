@@ -15,7 +15,6 @@ class editor extends JFrame implements ActionListener {
     JFrame f;
 
     private boolean saved = false;
-    int testing;
 
     // Constructor
     public editor()
