@@ -5,11 +5,10 @@ import javax.swing.*;
 import java.io.*;
 import java.awt.event.*;
 import javax.swing.plaf.metal.*;
-import javax.swing.text.*;
 
-class editor extends JFrame implements ActionListener {
+class editor extends JFrame implements ActionListener, KeyListener {
     // Text component
-    JTextArea t;
+    JTextPane t;
 
     // Frame
     JFrame f;
@@ -20,7 +19,7 @@ class editor extends JFrame implements ActionListener {
     public editor()
     {
         // Create a frame
-        f = new JFrame("Text Editor");
+        f = new JFrame("Casimirs Text Editor");
 
         try {
             // Set metl look and feel
@@ -33,11 +32,12 @@ class editor extends JFrame implements ActionListener {
         }
 
         // Text component
-        t = new JTextArea();
+        t = new JTextPane();
         t.setFont(new Font("Consolas", Font.PLAIN, 20));
         t.setForeground(Color.GREEN);
         t.setCaretColor(Color.YELLOW);
         t.setBackground(Color.BLACK);
+        t.addKeyListener(this);
         t.setBorder(BorderFactory.createEmptyBorder(5, 5, 0, 5));
 
         JScrollPane scroller = new JScrollPane(t, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
@@ -275,4 +275,22 @@ class editor extends JFrame implements ActionListener {
         editor e = new editor();
     }
 
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if(e.getKeyCode() == KeyEvent.VK_SPACE){
+
+
+
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
 }
