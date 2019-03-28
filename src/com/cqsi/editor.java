@@ -18,6 +18,9 @@ class editor extends JFrame implements ActionListener {
     private boolean saved = false;
     private methods m;
 
+    // colors
+    private Color lilac = new Color(187, 97, 154);
+
     // Constructor
     public editor()
     {
@@ -90,7 +93,7 @@ class editor extends JFrame implements ActionListener {
 
         // making certain words colored
         final StyleContext cont = StyleContext.getDefaultStyleContext();
-        final AttributeSet attr = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, Color.RED);
+        final AttributeSet attr = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, lilac);
         final AttributeSet attrGreen = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, Color.GREEN);
         DefaultStyledDocument doc = new DefaultStyledDocument() {
 
@@ -107,7 +110,7 @@ class editor extends JFrame implements ActionListener {
 
                 while (wordR <= after) {
                     if (wordR == after || String.valueOf(text.charAt(wordR)).matches("\\W")) {
-                        if (text.substring(wordL, wordR).matches("(\\W)*(private|public|protected)"))
+                        if (text.substring(wordL, wordR).matches("(\\W)*(from|import)"))
                             setCharacterAttributes(wordL, wordR - wordL, attr, false);
                         else
                             setCharacterAttributes(wordL, wordR - wordL, attrGreen, false);

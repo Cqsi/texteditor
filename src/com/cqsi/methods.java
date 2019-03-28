@@ -1,6 +1,7 @@
 package com.cqsi;
 
 public class methods {
+
     public int findLastNonWordChar (String text, int index) {
         while (--index >= 0) {
             if (String.valueOf(text.charAt(index)).matches("\\W")) {
