@@ -5,8 +5,10 @@ import javax.swing.*;
 import java.io.*;
 import java.awt.event.*;
 import javax.swing.plaf.metal.*;
+import javax.swing.text.*;
 
-class editor extends JFrame implements ActionListener, KeyListener {
+class editor extends JFrame implements ActionListener {
+
     // Text component
     JTextPane t;
 
@@ -14,10 +16,14 @@ class editor extends JFrame implements ActionListener, KeyListener {
     JFrame f;
 
     private boolean saved = false;
+    private methods m;
 
     // Constructor
     public editor()
     {
+
+        m = new methods();
+
         // Create a frame
         f = new JFrame("Casimirs Text Editor");
 
@@ -30,17 +36,6 @@ class editor extends JFrame implements ActionListener, KeyListener {
         }
         catch (Exception e) {
         }
-
-        // Text component
-        t = new JTextPane();
-        t.setFont(new Font("Consolas", Font.PLAIN, 20));
-        t.setForeground(Color.GREEN);
-        t.setCaretColor(Color.YELLOW);
-        t.setBackground(Color.BLACK);
-        t.addKeyListener(this);
-        t.setBorder(BorderFactory.createEmptyBorder(5, 5, 0, 5));
-
-        JScrollPane scroller = new JScrollPane(t, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
         // Create a menubar
         JMenuBar mb = new JMenuBar();
@@ -93,6 +88,62 @@ class editor extends JFrame implements ActionListener, KeyListener {
         mb.add(m2);
         mb.add(mc);
 
+        // making certain words colored
+        final StyleContext cont = StyleContext.getDefaultStyleContext();
+        final AttributeSet attr = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, Color.RED);
+        final AttributeSet attrGreen = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, Color.GREEN);
+        DefaultStyledDocument doc = new DefaultStyledDocument() {
+
+            // method
+            public void insertString(int offset, String str, AttributeSet a) throws BadLocationException {
+                super.insertString(offset, str, a);
+
+                String text = getText(0, getLength());
+                int before = m.findLastNonWordChar(text, offset);
+                if (before < 0) before = 0;
+                int after = m.findFirstNonWordChar(text, offset + str.length());
+                int wordL = before;
+                int wordR = before;
+
+                while (wordR <= after) {
+                    if (wordR == after || String.valueOf(text.charAt(wordR)).matches("\\W")) {
+                        if (text.substring(wordL, wordR).matches("(\\W)*(private|public|protected)"))
+                            setCharacterAttributes(wordL, wordR - wordL, attr, false);
+                        else
+                            setCharacterAttributes(wordL, wordR - wordL, attrGreen, false);
+                        wordL = wordR;
+                    }
+                    wordR++;
+                }
+            }
+
+            //method
+            public void remove (int offs, int len) throws BadLocationException {
+                super.remove(offs, len);
+
+                String text = getText(0, getLength());
+                int before = m.findLastNonWordChar(text, offs);
+                if (before < 0) before = 0;
+                int after = m.findFirstNonWordChar(text, offs);
+
+                if (text.substring(before, after).matches("(\\W)*(private|public|protected)")) {
+                    setCharacterAttributes(before, after - before, attr, false);
+                } else {
+                    setCharacterAttributes(before, after - before, attrGreen, false);
+                }
+            }
+        };
+
+        // Text component
+        t = new JTextPane(doc);
+        t.setFont(new Font("Consolas", Font.PLAIN, 20));
+        t.setCaretColor(Color.YELLOW);
+        t.setBackground(Color.BLACK);
+        t.setBorder(BorderFactory.createEmptyBorder(5, 5, 0, 5));
+
+        JScrollPane scroller = new JScrollPane(t, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+
+        // adding everything to the screen
         f.setJMenuBar(mb);
         f.add(scroller);
         f.setSize(500, 500);
@@ -273,24 +324,5 @@ class editor extends JFrame implements ActionListener, KeyListener {
     public static void main(String args[])
     {
         editor e = new editor();
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        if(e.getKeyCode() == KeyEvent.VK_SPACE){
-
-
-
-        }
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
     }
 }
