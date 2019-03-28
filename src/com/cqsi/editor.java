@@ -21,6 +21,8 @@ class editor extends JFrame implements ActionListener {
     // colors
     private Color lilac = new Color(187, 97, 154);
     private Color yellow = new Color(204, 204, 76);
+    private Color darkblue = new Color(106,90,205);
+    private Color darkred = new Color(128,0,0);
 
     // Constructor
     public editor()
@@ -97,6 +99,8 @@ class editor extends JFrame implements ActionListener {
         final AttributeSet attr = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, lilac);
         final AttributeSet attrGreen = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, Color.WHITE);
         final AttributeSet attrYellow = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, yellow);
+        final AttributeSet attrDarkBlue = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, darkblue);
+        final AttributeSet attrDarkRed = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, darkred);
 
         DefaultStyledDocument doc = new DefaultStyledDocument() {
 
@@ -115,8 +119,12 @@ class editor extends JFrame implements ActionListener {
                     if (wordR == after || String.valueOf(text.charAt(wordR)).matches("\\W")) {
                         if (text.substring(wordL, wordR).matches("(\\W)*(from|import)")) {
                             setCharacterAttributes(wordL, wordR - wordL, attr, false);
-                        } else if(text.substring(wordL, wordR).matches("(\\W)*(def)")){
+                        } else if(text.substring(wordL, wordR).matches("(\\W)*(def|or|not|is|while|class|if|in)")){
                             setCharacterAttributes(wordL, wordR - wordL, attrYellow, false);
+                        }else if(text.substring(wordL, wordR).matches("(\\W)*(#)")){
+                            setCharacterAttributes(wordL, wordR - wordL, attrDarkBlue, false);
+                        }else if(text.substring(wordL, wordR).matches("\\d+")){
+                            setCharacterAttributes(wordL, wordR - wordL, attrDarkRed, false);
                         }else {
                             setCharacterAttributes(wordL, wordR - wordL, attrGreen, false);
                         }
@@ -135,10 +143,14 @@ class editor extends JFrame implements ActionListener {
                 if (before < 0) before = 0;
                 int after = m.findFirstNonWordChar(text, offs);
 
-                if (text.substring(before, after).matches("(\\W)*(private|public|protected)")) {
+                if (text.substring(before, after).matches("(\\W)*(from|import)")) {
                     setCharacterAttributes(before, after - before, attr, false);
-                }else if (text.substring(before, after).matches("(\\W)*(def)")) {
+                }else if (text.substring(before, after).matches("(\\W)*(def|or|not|is|while|class|if)")) {
                     setCharacterAttributes(before, after - before, attrYellow, false);
+                }else if (text.substring(before, after).matches("(\\W)*(#)")) {
+                    setCharacterAttributes(before, after - before, attrDarkBlue, false);
+                }else if (text.substring(before, after).matches("\\d+")) {
+                    setCharacterAttributes(before, after - before, attrDarkRed, false);
                 }else {
                     setCharacterAttributes(before, after - before, attrGreen, false);
                 }
