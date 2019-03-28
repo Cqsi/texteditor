@@ -20,6 +20,7 @@ class editor extends JFrame implements ActionListener {
 
     // colors
     private Color lilac = new Color(187, 97, 154);
+    private Color yellow = new Color(204, 204, 76);
 
     // Constructor
     public editor()
@@ -94,7 +95,9 @@ class editor extends JFrame implements ActionListener {
         // making certain words colored
         final StyleContext cont = StyleContext.getDefaultStyleContext();
         final AttributeSet attr = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, lilac);
-        final AttributeSet attrGreen = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, Color.GREEN);
+        final AttributeSet attrGreen = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, Color.WHITE);
+        final AttributeSet attrYellow = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, yellow);
+
         DefaultStyledDocument doc = new DefaultStyledDocument() {
 
             // method
@@ -110,10 +113,13 @@ class editor extends JFrame implements ActionListener {
 
                 while (wordR <= after) {
                     if (wordR == after || String.valueOf(text.charAt(wordR)).matches("\\W")) {
-                        if (text.substring(wordL, wordR).matches("(\\W)*(from|import)"))
+                        if (text.substring(wordL, wordR).matches("(\\W)*(from|import)")) {
                             setCharacterAttributes(wordL, wordR - wordL, attr, false);
-                        else
+                        } else if(text.substring(wordL, wordR).matches("(\\W)*(def)")){
+                            setCharacterAttributes(wordL, wordR - wordL, attrYellow, false);
+                        }else {
                             setCharacterAttributes(wordL, wordR - wordL, attrGreen, false);
+                        }
                         wordL = wordR;
                     }
                     wordR++;
@@ -131,7 +137,9 @@ class editor extends JFrame implements ActionListener {
 
                 if (text.substring(before, after).matches("(\\W)*(private|public|protected)")) {
                     setCharacterAttributes(before, after - before, attr, false);
-                } else {
+                }else if (text.substring(before, after).matches("(\\W)*(def)")) {
+                    setCharacterAttributes(before, after - before, attrYellow, false);
+                }else {
                     setCharacterAttributes(before, after - before, attrGreen, false);
                 }
             }
@@ -149,7 +157,7 @@ class editor extends JFrame implements ActionListener {
         // adding everything to the screen
         f.setJMenuBar(mb);
         f.add(scroller);
-        f.setSize(500, 500);
+        f.setSize(800, 970);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setLocationRelativeTo(null);
         f.setVisible(true);
