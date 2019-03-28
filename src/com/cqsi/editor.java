@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.io.*;
 import java.awt.event.*;
+import java.util.concurrent.atomic.AtomicReference;
 import javax.swing.plaf.metal.*;
 import javax.swing.text.*;
 
@@ -23,6 +24,7 @@ class editor extends JFrame implements ActionListener {
     private Color yellow = new Color(204, 204, 76);
     private Color darkblue = new Color(106,90,205);
     private Color darkred = new Color(128,0,0);
+    private Color limegreen = new Color(50,205,50);
 
     // Constructor
     public editor()
@@ -101,6 +103,7 @@ class editor extends JFrame implements ActionListener {
         final AttributeSet attrYellow = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, yellow);
         final AttributeSet attrDarkBlue = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, darkblue);
         final AttributeSet attrDarkRed = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, darkred);
+        final AttributeSet attrLimeGreen = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, limegreen);
 
         DefaultStyledDocument doc = new DefaultStyledDocument() {
 
@@ -125,6 +128,8 @@ class editor extends JFrame implements ActionListener {
                             setCharacterAttributes(wordL, wordR - wordL, attrDarkBlue, false);
                         }else if(text.substring(wordL, wordR).matches("\\d+")){
                             setCharacterAttributes(wordL, wordR - wordL, attrDarkRed, false);
+                        }else if(text.substring(wordL, wordR).matches("(\\W)*(print|input)")){
+                            setCharacterAttributes(wordL, wordR - wordL, attrLimeGreen, false);
                         }else {
                             setCharacterAttributes(wordL, wordR - wordL, attrGreen, false);
                         }
@@ -151,6 +156,8 @@ class editor extends JFrame implements ActionListener {
                     setCharacterAttributes(before, after - before, attrDarkBlue, false);
                 }else if (text.substring(before, after).matches("\\d+")) {
                     setCharacterAttributes(before, after - before, attrDarkRed, false);
+                }else if (text.substring(before, after).matches("(\\W)*(print)")) {
+                    setCharacterAttributes(before, after - before, attrLimeGreen, false);
                 }else {
                     setCharacterAttributes(before, after - before, attrGreen, false);
                 }
