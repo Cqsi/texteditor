@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Python Text Editor">
+    <output-path>$PROJECT_DIR$/out/artifacts/Python_Text_Editor</output-path>
+    <root id="archive" name="texteditor.jar">
+      <element id="module-output" name="texteditor" />
+    </root>
+  </artifact>
+</component>

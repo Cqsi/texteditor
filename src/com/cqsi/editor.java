@@ -26,6 +26,8 @@ class editor extends JFrame implements ActionListener {
     private Color darkred = new Color(128,0,0);
     private Color limegreen = new Color(50,205,50);
 
+    DefaultStyledDocument doc;
+
     // Constructor
     public editor()
     {
@@ -99,13 +101,13 @@ class editor extends JFrame implements ActionListener {
         // making certain words colored
         final StyleContext cont = StyleContext.getDefaultStyleContext();
         final AttributeSet attr = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, lilac);
-        final AttributeSet attrGreen = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, Color.WHITE);
+        final AttributeSet attrWhite = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, Color.WHITE);
         final AttributeSet attrYellow = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, yellow);
         final AttributeSet attrDarkBlue = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, darkblue);
         final AttributeSet attrDarkRed = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, darkred);
         final AttributeSet attrLimeGreen = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, limegreen);
 
-        DefaultStyledDocument doc = new DefaultStyledDocument() {
+        doc = new DefaultStyledDocument() {
 
             // method
             public void insertString(int offset, String str, AttributeSet a) throws BadLocationException {
@@ -122,16 +124,16 @@ class editor extends JFrame implements ActionListener {
                     if (wordR == after || String.valueOf(text.charAt(wordR)).matches("\\W")) {
                         if (text.substring(wordL, wordR).matches("(\\W)*(from|import)")) {
                             setCharacterAttributes(wordL, wordR - wordL, attr, false);
-                        } else if(text.substring(wordL, wordR).matches("(\\W)*(def|or|not|is|while|class|if|in)")){
+                        } else if(text.substring(wordL, wordR).matches("(\\W)*(def|or|not|is|while|class|if|in|else|elif)")){
                             setCharacterAttributes(wordL, wordR - wordL, attrYellow, false);
                         }else if(text.substring(wordL, wordR).matches("(\\W)*(#)")){
                             setCharacterAttributes(wordL, wordR - wordL, attrDarkBlue, false);
-                        }else if(text.substring(wordL, wordR).matches("\\d+")){
-                            setCharacterAttributes(wordL, wordR - wordL, attrDarkRed, false);
                         }else if(text.substring(wordL, wordR).matches("(\\W)*(print|input)")){
                             setCharacterAttributes(wordL, wordR - wordL, attrLimeGreen, false);
+                        }else if(text.substring(wordL, wordR).matches("(\\W)*(True|False)")){
+                            setCharacterAttributes(wordL, wordR - wordL, attrDarkRed, false);
                         }else {
-                            setCharacterAttributes(wordL, wordR - wordL, attrGreen, false);
+                            setCharacterAttributes(wordL, wordR - wordL, attrWhite, false);
                         }
                         wordL = wordR;
                     }
@@ -154,12 +156,12 @@ class editor extends JFrame implements ActionListener {
                     setCharacterAttributes(before, after - before, attrYellow, false);
                 }else if (text.substring(before, after).matches("(\\W)*(#)")) {
                     setCharacterAttributes(before, after - before, attrDarkBlue, false);
-                }else if (text.substring(before, after).matches("\\d+")) {
-                    setCharacterAttributes(before, after - before, attrDarkRed, false);
-                }else if (text.substring(before, after).matches("(\\W)*(print)")) {
+                }else if (text.substring(before, after).matches("(\\W)*(print|input)")) {
                     setCharacterAttributes(before, after - before, attrLimeGreen, false);
+                }else if (text.substring(before, after).matches("(\\W)*(True|False)")) {
+                    setCharacterAttributes(before, after - before, attrDarkRed, false);
                 }else {
-                    setCharacterAttributes(before, after - before, attrGreen, false);
+                    setCharacterAttributes(before, after - before, attrWhite, false);
                 }
             }
         };
