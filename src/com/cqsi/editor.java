@@ -8,16 +8,19 @@ import java.util.concurrent.atomic.AtomicReference;
 import javax.swing.plaf.metal.*;
 import javax.swing.text.*;
 
-class editor extends JFrame implements ActionListener {
+class editor extends JFrame implements ActionListener, KeyListener {
 
     // Text component
-    JTextPane t;
+    private JTextPane t;
+    private JTextField tf;
 
     // Frame
-    JFrame f;
+    private JFrame f;
 
-    private boolean saved = false;
+    private boolean saved = false, tfbool = true;
     private methods m;
+
+    private Font consolas = new Font("Consolas", Font.PLAIN, 20);
 
     // colors
     private Color lilac = new Color(187, 97, 154);
@@ -152,7 +155,7 @@ class editor extends JFrame implements ActionListener {
 
                 if (text.substring(before, after).matches("(\\W)*(from|import)")) {
                     setCharacterAttributes(before, after - before, attr, false);
-                }else if (text.substring(before, after).matches("(\\W)*(def|or|not|is|while|class|if)")) {
+                }else if (text.substring(before, after).matches("(\\W)*(def|or|not|is|while|class|if|in|else|elif)")) {
                     setCharacterAttributes(before, after - before, attrYellow, false);
                 }else if (text.substring(before, after).matches("(\\W)*(#)")) {
                     setCharacterAttributes(before, after - before, attrDarkBlue, false);
@@ -168,16 +171,27 @@ class editor extends JFrame implements ActionListener {
 
         // Text component
         t = new JTextPane(doc);
-        t.setFont(new Font("Consolas", Font.PLAIN, 20));
+        t.setFont(consolas);
         t.setCaretColor(Color.YELLOW);
+        t.addKeyListener(this);
         t.setBackground(Color.BLACK);
         t.setBorder(BorderFactory.createEmptyBorder(5, 5, 0, 5));
 
         JScrollPane scroller = new JScrollPane(t, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
+        // textfield
+        tf = new JTextField();
+        tf.setBackground(Color.BLACK);
+        tf.setFont(consolas);
+        tf.setForeground(Color.WHITE);
+        tf.addKeyListener(this);
+        tf.setCaretColor(Color.YELLOW);
+        tf.setBorder(BorderFactory.createEmptyBorder(5, 5, 0, 5));
+
         // adding everything to the screen
         f.setJMenuBar(mb);
         f.add(scroller);
+        f.add(tf, BorderLayout.SOUTH);
         f.setSize(800, 970);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setLocationRelativeTo(null);
@@ -201,41 +215,7 @@ class editor extends JFrame implements ActionListener {
             t.paste();
         }
         else if (s.equals("Save")) {
-            // Create an object of JFileChooser class
-            JFileChooser j = new JFileChooser("f:");
-
-            // Invoke the showsSaveDialog function to show the save dialog
-            int r = j.showSaveDialog(null);
-
-            if (r == JFileChooser.APPROVE_OPTION) {
-
-                // Set the label to the path of the selected directory
-                File fi = new File(j.getSelectedFile().getAbsolutePath());
-
-
-                try {
-                    // Create a file writer
-                    FileWriter wr = new FileWriter(fi, false);
-
-                    // Create buffered writer to write
-                    BufferedWriter w = new BufferedWriter(wr);
-
-                    // Write
-                    w.write(t.getText());
-                    w.write("\ninput(\"Press Enter to exit... \")");
-
-                    w.flush();
-                    w.close();
-                }
-                catch (Exception evt) {
-                    JOptionPane.showMessageDialog(f, evt.getMessage());
-                }
-
-                saved = true;
-            }
-            // If the user cancelled the operation
-            else
-                JOptionPane.showMessageDialog(f, "the user cancelled the operation");
+           save(false);
         }
 
 
@@ -249,6 +229,7 @@ class editor extends JFrame implements ActionListener {
             }
         }
         else if (s.equals("Open")) {
+
             // Create an object of JFileChooser class
             JFileChooser j = new JFileChooser("f:");
 
@@ -295,41 +276,7 @@ class editor extends JFrame implements ActionListener {
             t.setText("");
         }else if(s.equals("Run")){
             if(!saved){
-                JFileChooser j = new JFileChooser("f:");
-
-                // Invoke the showsSaveDialog function to show the save dialog
-                int r = j.showSaveDialog(null);
-
-                if (r == JFileChooser.APPROVE_OPTION) {
-
-                    // Set the label to the path of the selected directory
-                    File fi = new File(j.getSelectedFile().getAbsolutePath());
-
-
-                    try {
-                        // Create a file writer
-                        FileWriter wr = new FileWriter(fi, false);
-
-                        // Create buffered writer to write
-                        BufferedWriter w = new BufferedWriter(wr);
-
-                        // Write
-                        w.write(t.getText());
-                        w.write("\ninput(\"Press Enter to exit... \")");
-
-                        w.flush();
-                        w.close();
-                    }
-                    catch (Exception evt) {
-                        JOptionPane.showMessageDialog(f, evt.getMessage());
-                    }
-
-                    try {
-                        Desktop.getDesktop().open(fi);
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }
-                }
+                save(true);
             }else{
                 JFileChooser j = new JFileChooser("f:");
 
@@ -343,8 +290,8 @@ class editor extends JFrame implements ActionListener {
 
                     try {
                         Desktop.getDesktop().open(fi);
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
+                    } catch (Exception excep) {
+                        JOptionPane.showMessageDialog(null, "The file doesn't exist!");
                     }
                 }
                 saved = false;
@@ -357,4 +304,83 @@ class editor extends JFrame implements ActionListener {
     {
         editor e = new editor();
     }
+
+    @Override
+    public void keyTyped(KeyEvent e) {}
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+        if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+            if(tfbool){
+                tf.requestFocusInWindow();
+                tfbool = false;
+            }else{
+                t.requestFocusInWindow();
+                tfbool = true;
+            }
+        }
+        if(e.getKeyCode() == KeyEvent.VK_ENTER){
+            if(!tfbool){
+
+                String command = tf.getText();
+
+                if(command.equals(":w")){
+
+                }
+
+            }
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {}
+
+    private void save(boolean isRun){
+
+        // Create an object of JFileChooser class
+        JFileChooser j = new JFileChooser("f:");
+
+        // Invoke the showsSaveDialog function to show the save dialog
+        int r = j.showSaveDialog(null);
+
+        if (r == JFileChooser.APPROVE_OPTION) {
+
+            // Set the label to the path of the selected directory
+            File fi = new File(j.getSelectedFile().getAbsolutePath());
+
+
+            try {
+                // Create a file writer
+                FileWriter wr = new FileWriter(fi, false);
+
+                // Create buffered writer to write
+                BufferedWriter w = new BufferedWriter(wr);
+
+                // Write
+                w.write(t.getText());
+                w.write("\ninput(\"Press Enter to exit... \")");
+
+                w.flush();
+                w.close();
+            }
+            catch (Exception evt) {
+                JOptionPane.showMessageDialog(f, evt.getMessage());
+            }
+
+            if(isRun){
+                try {
+                    Desktop.getDesktop().open(fi);
+                } catch (Exception excep) {
+                    JOptionPane.showMessageDialog(null, "The file doesn't exist!");
+                }
+            }
+
+            saved = true;
+        }
+        // If the user cancelled the operation
+        else
+            JOptionPane.showMessageDialog(f, "the user cancelled the operation");
+    }
+
 }
