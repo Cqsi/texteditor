@@ -325,8 +325,10 @@ class editor extends JFrame implements ActionListener, KeyListener {
 
                 String command = tf.getText();
 
-                if(command.equals(":w")){
-
+                if(command.equals(":r")){
+                    save(true);
+                }else if(command.equals(":s")){
+                    save(false);
                 }
 
             }
@@ -335,6 +337,8 @@ class editor extends JFrame implements ActionListener, KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {}
+
+
 
     private void save(boolean isRun){
 
