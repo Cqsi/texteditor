@@ -17,8 +17,9 @@ class editor extends JFrame implements ActionListener, KeyListener {
     // Frame
     private JFrame f;
 
-    private boolean saved = false, tfbool = true;
+    private boolean saved = false, tfbool = true, isLocked = false;
     private methods m;
+    private String path;
 
     private Font consolas = new Font("Consolas", Font.PLAIN, 20);
 
@@ -53,53 +54,72 @@ class editor extends JFrame implements ActionListener, KeyListener {
         // Create a menubar
         JMenuBar mb = new JMenuBar();
 
-        // Create amenu for menu
+        // m1
         JMenu m1 = new JMenu("File");
 
-        // Create menu items
         JMenuItem mi1 = new JMenuItem("New");
         JMenuItem mi2 = new JMenuItem("Open");
         JMenuItem mi3 = new JMenuItem("Save");
         JMenuItem mi9 = new JMenuItem("Print");
 
-        // Add action listener
         mi1.addActionListener(this);
         mi2.addActionListener(this);
         mi3.addActionListener(this);
         mi9.addActionListener(this);
-
 
         m1.add(mi1);
         m1.add(mi2);
         m1.add(mi3);
         m1.add(mi9);
 
-        // Create amenu for menu
+        // m2
         JMenu m2 = new JMenu("Edit");
 
-        // Create menu items
         JMenuItem mi4 = new JMenuItem("cut");
         JMenuItem mi5 = new JMenuItem("copy");
         JMenuItem mi6 = new JMenuItem("paste");
 
-        // Add action listener
         mi4.addActionListener(this);
         mi5.addActionListener(this);
         mi6.addActionListener(this);
 
         m2.add(mi4);
-
-
         m2.add(mi5);
         m2.add(mi6);
 
+
+        // m3
+        JMenu m3 = new JMenu("Run");
+
         JMenuItem mc = new JMenuItem("Run");
+        JMenuItem lock = new JMenuItem("Lock");
+        JMenuItem unlock = new JMenuItem("Unlock");
+
+        m3.add(mc);
+        m3.add(lock);
+        m3.add(unlock);
 
         mc.addActionListener(this);
+        lock.addActionListener(this);
+        unlock.addActionListener(this);
 
+        // m4
+        JMenu m4 = new JMenu("Settings");
+
+        JMenuItem settings = new JMenuItem("Settings");
+        JMenuItem help = new JMenuItem("Help");
+
+        m4.add(settings);
+        m4.add(help);
+
+        settings.addActionListener(this);
+        help.addActionListener(this);
+
+        // adding all menus
         mb.add(m1);
         mb.add(m2);
-        mb.add(mc);
+        mb.add(m3);
+        mb.add(m4);
 
         // making certain words colored
         final StyleContext cont = StyleContext.getDefaultStyleContext();
@@ -204,98 +224,121 @@ class editor extends JFrame implements ActionListener, KeyListener {
         String s = e.getActionCommand();
 
 
+        // Create an object of JFileChooser class
+        //JFileChooser j = new JFileChooser("f:");
+        JFileChooser j;
 
-        if (s.equals("cut")) {
-            t.cut();
-        }
-        else if (s.equals("copy")) {
-            t.copy();
-        }
-        else if (s.equals("paste")) {
-            t.paste();
-        }
-        else if (s.equals("Save")) {
-           save(false);
-        }
+        // Invoke the showsOpenDialog function to show the save dialog
+        //int r = j.showOpenDialog(null);
+        int r;
 
-
-        else if (s.equals("Print")) {
-            try {
-                // print the file
-                t.print();
-            }
-            catch (Exception evt) {
-                JOptionPane.showMessageDialog(f, evt.getMessage());
-            }
-        }
-        else if (s.equals("Open")) {
-
-            // Create an object of JFileChooser class
-            JFileChooser j = new JFileChooser("f:");
-
-            // Invoke the showsOpenDialog function to show the save dialog
-            int r = j.showOpenDialog(null);
-
-            // If the user selects a file
-            if (r == JFileChooser.APPROVE_OPTION) {
-                // Set the label to the path of the selected directory
-                File fi = new File(j.getSelectedFile().getAbsolutePath());
-
+        switch(s){
+            case "cut":
+                t.cut();
+                break;
+            case "copy":
+                t.copy();
+                break;
+            case "paste":
+                t.paste();
+                break;
+            case "Save":
+                save(false);
+                break;
+            case "Print":
 
                 try {
-                    // String
-                    String s1 = "", sl = "";
-
-                    // File reader
-                    FileReader fr = new FileReader(fi);
-
-                    // Buffered reader
-                    BufferedReader br = new BufferedReader(fr);
-
-                    // Initilize sl
-                    sl = br.readLine();
-
-                    // Take the input from the file
-                    while ((s1 = br.readLine()) != null) {
-                        sl = sl + "\n" + s1;
-                    }
-
-                    // Set the text
-                    t.setText(sl);
-
+                    // print the file
+                    t.print();
                 }
                 catch (Exception evt) {
                     JOptionPane.showMessageDialog(f, evt.getMessage());
                 }
-            }
-            // If the user cancelled the operation
-            else
-                JOptionPane.showMessageDialog(f, "the user cancelled the operation");
-        }
-        else if (s.equals("New")) {
-            t.setText("");
-        }else if(s.equals("Run")){
-            if(!saved){
-                save(true);
-            }else{
-                JFileChooser j = new JFileChooser("f:");
 
-                // Invoke the showsOpenDialog function to show the save dialog
-                int r = j.showOpenDialog(null);
+                break;
+            case "Open":
+
+                j = new JFileChooser("f:");
+                r = j.showOpenDialog(null);
 
                 // If the user selects a file
                 if (r == JFileChooser.APPROVE_OPTION) {
                     // Set the label to the path of the selected directory
                     File fi = new File(j.getSelectedFile().getAbsolutePath());
 
+
                     try {
-                        Desktop.getDesktop().open(fi);
-                    } catch (Exception excep) {
-                        JOptionPane.showMessageDialog(null, "The file doesn't exist!");
+                        // String
+                        String s1 = "", sl = "";
+
+                        // File reader
+                        FileReader fr = new FileReader(fi);
+
+                        // Buffered reader
+                        BufferedReader br = new BufferedReader(fr);
+
+                        // Initilize sl
+                        sl = br.readLine();
+
+                        // Take the input from the file
+                        while ((s1 = br.readLine()) != null) {
+                            sl = sl + "\n" + s1;
+                        }
+
+                        // Set the text
+                        t.setText(sl);
+
+                    } catch (Exception evt) {
+                        JOptionPane.showMessageDialog(f, evt.getMessage());
                     }
                 }
-                saved = false;
-            }
+
+                break;
+            case "New":
+                t.setText("");
+                break;
+            case "Run":
+
+                if(!saved){
+                    save(true);
+                }else{
+                    j = new JFileChooser("f:");
+                    r = j.showOpenDialog(null);
+
+                    // If the user selects a file
+                    if (r == JFileChooser.APPROVE_OPTION) {
+                        // Set the label to the path of the selected directory
+                        File fi = new File(j.getSelectedFile().getAbsolutePath());
+
+                        try {
+                            Desktop.getDesktop().open(fi);
+                        } catch (Exception excep) {
+                            JOptionPane.showMessageDialog(null, "The file doesn't exist!");
+                        }
+                    }
+                    saved = false;
+                }
+
+                break;
+            case "Lock":
+                path = getPath();
+                isLocked = true;
+                JOptionPane.showMessageDialog(null, "Locked your file!");
+                break;
+            case "Unlock":
+                isLocked = false;
+                JOptionPane.showMessageDialog(null, "Unlocked you file!");
+                break;
+            case "Settings":
+
+                //TODO: make settings
+                break;
+            case "Help":
+
+                //TODO: make help
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Something went wrong!");
         }
     }
 
@@ -342,17 +385,58 @@ class editor extends JFrame implements ActionListener, KeyListener {
 
     private void save(boolean isRun){
 
-        // Create an object of JFileChooser class
-        JFileChooser j = new JFileChooser("f:");
+        if(!isLocked){
+            // Create an object of JFileChooser class
+            JFileChooser j = new JFileChooser("f:");
 
-        // Invoke the showsSaveDialog function to show the save dialog
-        int r = j.showSaveDialog(null);
+            // Invoke the showsSaveDialog function to show the save dialog
+            int r = j.showSaveDialog(null);
 
-        if (r == JFileChooser.APPROVE_OPTION) {
+            if (r == JFileChooser.APPROVE_OPTION) {
+
+                // Set the label to the path of the selected directory
+                File fi = new File(j.getSelectedFile().getAbsolutePath());
+
+
+                try {
+                    // Create a file writer
+                    FileWriter wr = new FileWriter(fi, false);
+
+                    // Create buffered writer to write
+                    BufferedWriter w = new BufferedWriter(wr);
+
+                    // Write
+                    w.write(t.getText());
+                    w.write("\ninput(\"Press Enter to exit... \")");
+
+                    w.flush();
+                    w.close();
+
+                    if(isLocked){
+                        JOptionPane.showMessageDialog(null, "Saved " + path);
+                    }
+                }
+                catch (Exception evt) {
+                    JOptionPane.showMessageDialog(f, evt.getMessage());
+                }
+
+                if(isRun){
+                    try {
+                        Desktop.getDesktop().open(fi);
+                    } catch (Exception excep) {
+                        JOptionPane.showMessageDialog(null, "The file doesn't exist!");
+                    }
+                }
+
+                saved = true;
+            }
+            // If the user cancelled the operation
+            else
+                JOptionPane.showMessageDialog(f, "the user cancelled the operation");
+        }else{
 
             // Set the label to the path of the selected directory
-            File fi = new File(j.getSelectedFile().getAbsolutePath());
-
+            File fi = new File(path);
 
             try {
                 // Create a file writer
@@ -379,12 +463,22 @@ class editor extends JFrame implements ActionListener, KeyListener {
                     JOptionPane.showMessageDialog(null, "The file doesn't exist!");
                 }
             }
-
-            saved = true;
         }
-        // If the user cancelled the operation
-        else
-            JOptionPane.showMessageDialog(f, "the user cancelled the operation");
+    }
+
+    private String getPath(){
+
+        // Create an object of JFileChooser class
+        JFileChooser j = new JFileChooser("f:");
+
+        // Invoke the showsSaveDialog function to show the save dialog
+        int r = j.showDialog(null, "Lock File");
+
+        if (r == JFileChooser.APPROVE_OPTION) {
+            return j.getSelectedFile().getAbsolutePath();
+        }else {
+            return null;
+        }
     }
 
 }
