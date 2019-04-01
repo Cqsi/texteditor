@@ -345,12 +345,6 @@ class editor extends JFrame implements ActionListener, KeyListener {
         }
     }
 
-    // editor class
-    public static void main(String args[])
-    {
-        editor e = new editor();
-    }
-
     @Override
     public void keyTyped(KeyEvent e) {}
 
