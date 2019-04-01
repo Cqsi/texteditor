@@ -149,11 +149,11 @@ class editor extends JFrame implements ActionListener, KeyListener {
                     if (wordR == after || String.valueOf(text.charAt(wordR)).matches("\\W")) {
                         if (text.substring(wordL, wordR).matches("(\\W)*(from|import)")) {
                             setCharacterAttributes(wordL, wordR - wordL, attr, false);
-                        } else if(text.substring(wordL, wordR).matches("(\\W)*(def|or|not|is|while|class|if|in|else|elif)")){
+                        } else if(text.substring(wordL, wordR).matches("(\\W)*(def|or|not|is|while|class|if|in|else|elif|for)")){
                             setCharacterAttributes(wordL, wordR - wordL, attrYellow, false);
                         }else if(text.substring(wordL, wordR).matches("(\\W)*(#)")){
                             setCharacterAttributes(wordL, wordR - wordL, attrDarkBlue, false);
-                        }else if(text.substring(wordL, wordR).matches("(\\W)*(print|input)")){
+                        }else if(text.substring(wordL, wordR).matches("(\\W)*(print|input|range)")){
                             setCharacterAttributes(wordL, wordR - wordL, attrLimeGreen, false);
                         }else if(text.substring(wordL, wordR).matches("(\\W)*(True|False)")){
                             setCharacterAttributes(wordL, wordR - wordL, attrDarkRed, false);
@@ -181,7 +181,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
                     setCharacterAttributes(before, after - before, attrYellow, false);
                 }else if (text.substring(before, after).matches("(\\W)*(#)")) {
                     setCharacterAttributes(before, after - before, attrDarkBlue, false);
-                }else if (text.substring(before, after).matches("(\\W)*(print|input)")) {
+                }else if (text.substring(before, after).matches("(\\W)*(print|input|range)")) {
                     setCharacterAttributes(before, after - before, attrLimeGreen, false);
                 }else if (text.substring(before, after).matches("(\\W)*(True|False)")) {
                     setCharacterAttributes(before, after - before, attrDarkRed, false);
@@ -324,7 +324,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
 
                 break;
             case "Lock":
-                path = getPath();
+                path = m.getPath();
                 isLocked = true;
                 JOptionPane.showMessageDialog(null, "Locked your file!");
                 break;
@@ -466,21 +466,6 @@ class editor extends JFrame implements ActionListener, KeyListener {
                     JOptionPane.showMessageDialog(null, "The file doesn't exist!");
                 }
             }
-        }
-    }
-
-    private String getPath(){
-
-        // Create an object of JFileChooser class
-        JFileChooser j = new JFileChooser("f:");
-
-        // Invoke the showsSaveDialog function to show the save dialog
-        int r = j.showDialog(null, "Lock File");
-
-        if (r == JFileChooser.APPROVE_OPTION) {
-            return j.getSelectedFile().getAbsolutePath();
-        }else {
-            return null;
         }
     }
 

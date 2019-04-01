@@ -1,5 +1,7 @@
 package com.cqsi;
 
+import javax.swing.*;
+
 public class methods {
 
     public int findLastNonWordChar (String text, int index) {
@@ -19,5 +21,20 @@ public class methods {
             index++;
         }
         return index;
+    }
+
+    public String getPath(){
+
+        // Create an object of JFileChooser class
+        JFileChooser j = new JFileChooser("f:");
+
+        // Invoke the showsSaveDialog function to show the save dialog
+        int r = j.showDialog(null, "Lock File");
+
+        if (r == JFileChooser.APPROVE_OPTION) {
+            return j.getSelectedFile().getAbsolutePath();
+        }else {
+            return null;
+        }
     }
 }
