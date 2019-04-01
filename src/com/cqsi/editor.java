@@ -215,7 +215,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
         f.setJMenuBar(mb);
         f.add(scroller);
         f.add(tf, BorderLayout.SOUTH);
-        f.setSize(800, 970);
+        f.setSize(800, Toolkit.getDefaultToolkit().getScreenSize().height-25);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setLocationRelativeTo(null);
         f.setVisible(true);
