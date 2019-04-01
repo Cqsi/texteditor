@@ -19,6 +19,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
 
     private boolean saved = false, tfbool = true, isLocked = false;
     private methods m;
+    private focuslistener foc;
     private String path;
 
     private Font consolas = new Font("Consolas", Font.PLAIN, 20);
@@ -37,6 +38,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
     {
 
         m = new methods();
+        foc = new focuslistener();
 
         // Create a frame
         f = new JFrame("Casimirs Text Editor");
@@ -175,7 +177,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
 
                 if (text.substring(before, after).matches("(\\W)*(from|import)")) {
                     setCharacterAttributes(before, after - before, attr, false);
-                }else if (text.substring(before, after).matches("(\\W)*(def|or|not|is|while|class|if|in|else|elif)")) {
+                }else if (text.substring(before, after).matches("(\\W)*(def|or|not|is|while|class|if|in|else|elif|for)")) {
                     setCharacterAttributes(before, after - before, attrYellow, false);
                 }else if (text.substring(before, after).matches("(\\W)*(#)")) {
                     setCharacterAttributes(before, after - before, attrDarkBlue, false);
@@ -205,6 +207,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
         tf.setFont(consolas);
         tf.setForeground(Color.WHITE);
         tf.addKeyListener(this);
+        tf.addFocusListener(foc);
         tf.setCaretColor(Color.YELLOW);
         tf.setBorder(BorderFactory.createEmptyBorder(5, 5, 0, 5));
 
@@ -355,23 +358,23 @@ class editor extends JFrame implements ActionListener, KeyListener {
     public void keyPressed(KeyEvent e) {
 
         if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
-            if(tfbool){
+            if(!foc.isTfbool()){
                 tf.requestFocusInWindow();
-                tfbool = false;
             }else{
                 t.requestFocusInWindow();
-                tfbool = true;
             }
         }
         if(e.getKeyCode() == KeyEvent.VK_ENTER){
-            if(!tfbool){
+            if(foc.isTfbool()){
 
                 String command = tf.getText();
 
                 if(command.equals(":r")){
                     save(true);
+                    tf.setText("");
                 }else if(command.equals(":s")){
                     save(false);
+                    tf.setText("");
                 }
 
             }
