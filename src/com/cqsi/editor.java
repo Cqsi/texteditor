@@ -18,14 +18,14 @@ class editor extends JFrame implements ActionListener, KeyListener {
     // Frame
     private JFrame f;
 
-    private boolean saved = false, tfbool = true, isLocked = false;
+    private boolean saved = false, isLocked = false;
     private methods m;
     private focuslistener foc;
     private String path;
 
     private Font consolas = new Font("Consolas", Font.PLAIN, 20);
 
-    // colors
+    // default colors
     private Color lilac = new Color(187, 97, 154);
     private Color yellow = new Color(204, 204, 76);
     private Color darkblue = new Color(106,90,205);
