@@ -215,7 +215,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
         f.setJMenuBar(mb);
         f.add(scroller);
         f.add(tf, BorderLayout.SOUTH);
-        f.setSize(800, Toolkit.getDefaultToolkit().getScreenSize().height-25);
+        f.setSize(800, Toolkit.getDefaultToolkit().getScreenSize().height-30);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setLocationRelativeTo(null);
         f.setVisible(true);
@@ -334,11 +334,11 @@ class editor extends JFrame implements ActionListener, KeyListener {
                 break;
             case "Settings":
 
-                //TODO: make settings
+                JDialog jd = new JDialog(f, "Settings");
+
                 break;
             case "Help":
-
-                //TODO: make help
+                JOptionPane.showMessageDialog(null, "Welcome to Casimir's Python TextEditor.\n\nHow to use:\n1. Write Python code.\n2. Click run.\n\nYou can also \"lock\" the file, which means that that file is automatically run when you click \"run\".");
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "Something went wrong!");
