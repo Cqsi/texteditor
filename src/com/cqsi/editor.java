@@ -4,35 +4,38 @@ import java.awt.*;
 import javax.swing.*;
 import java.io.*;
 import java.awt.event.*;
-import java.util.concurrent.atomic.AtomicReference;
 import javax.swing.plaf.metal.*;
 import javax.swing.text.*;
 
 class editor extends JFrame implements ActionListener, KeyListener {
 
-    // Text component
-    private JTextPane t;
-    private JTextField tf;
-    private JButton changeBac;
-
     // Frame
     private JFrame f;
 
+    // Swing
+    private JTextPane t;
+    private JTextField tf;
+    private JButton colorBackground, colorKeywords;
+    private JColorChooser jColorChooser;
+
+    // Variables
     private boolean saved = false, isLocked = false;
     private methods m;
     private focuslistener foc;
     private String path;
 
-    private Font consolas = new Font("Consolas", Font.PLAIN, 20);
-
-    // default colors
+    // Default colors
     private Color lilac = new Color(187, 97, 154);
     private Color yellow = new Color(204, 204, 76);
     private Color darkblue = new Color(106,90,205);
     private Color darkred = new Color(128,0,0);
     private Color limegreen = new Color(50,205,50);
 
-    DefaultStyledDocument doc;
+    // Fonts
+    private Font consolas = new Font("Consolas", Font.PLAIN, 20);
+
+    // DefaultStyledDocument
+    private DefaultStyledDocument doc;
 
     // Constructor
     public editor()
@@ -236,7 +239,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
         //int r = j.showOpenDialog(null);
         int r;
 
-        switch(s){
+        switch(s) {
             case "cut":
                 t.cut();
                 break;
@@ -254,8 +257,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
                 try {
                     // print the file
                     t.print();
-                }
-                catch (Exception evt) {
+                } catch (Exception evt) {
                     JOptionPane.showMessageDialog(f, evt.getMessage());
                 }
 
@@ -303,9 +305,9 @@ class editor extends JFrame implements ActionListener, KeyListener {
                 break;
             case "Run":
 
-                if(!saved){
+                if (!saved) {
                     save(true);
-                }else{
+                } else {
                     j = new JFileChooser("f:");
                     r = j.showOpenDialog(null);
 
@@ -336,13 +338,22 @@ class editor extends JFrame implements ActionListener, KeyListener {
             case "Settings":
 
                 JDialog jd = new JDialog(f, "Settings");
-                changeBac = new JButton("Change Background");
-                changeBac.addActionListener(this);
 
-                jd.add(changeBac);
+                JPanel panelBackground = new JPanel();
+                JPanel panelKeywords = new JPanel();
+                JPanel panelButtons = new JPanel();
+
+                JButton apply = new JButton("Apply");
+                JButton def = new JButton("Default");
+                panelButtons.add(apply);
+                panelButtons.add(def);
+
+
+                jd.add(panelButtons, BorderLayout.SOUTH);
+
                 jd.setLocationRelativeTo(null);
                 jd.setResizable(false);
-                jd.setSize(200,200);
+                jd.setSize(400, 600);
                 jd.setVisible(true);
 
                 break;
@@ -351,10 +362,6 @@ class editor extends JFrame implements ActionListener, KeyListener {
                 break;
             default:
 
-        }
-
-        if(e.getSource() == changeBac){
-            t.setBackground(Color.GREEN);
         }
     }
 
