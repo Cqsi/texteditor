@@ -31,8 +31,9 @@ class editor extends JFrame implements ActionListener, KeyListener {
     private Color darkred = new Color(128,0,0);
     private Color limegreen = new Color(50,205,50);
 
-    // Fonts
+    // Fonts & Dimensions
     private Font consolas = new Font("Consolas", Font.PLAIN, 20);
+    private Dimension d = new Dimension(80,40);
 
     // DefaultStyledDocument
     private DefaultStyledDocument doc;
@@ -337,23 +338,36 @@ class editor extends JFrame implements ActionListener, KeyListener {
                 break;
             case "Settings":
 
+                // dialog instance
                 JDialog jd = new JDialog(f, "Settings");
 
-                JPanel panelBackground = new JPanel();
-                JPanel panelKeywords = new JPanel();
+                // panels
+                JPanel panelBackgroundColor = new JPanel();
+                JPanel panelKeywordsColor = new JPanel();
                 JPanel panelButtons = new JPanel();
 
+                // background settings panel
+                JLabel backgroundText = new JLabel("Background color ");
+                JButton changeBackgroundColor = new JButton("Change Color");
+                panelBackgroundColor.add(backgroundText);
+                panelBackgroundColor.add(changeBackgroundColor);
+
+                // Buttons at the bottom
                 JButton apply = new JButton("Apply");
                 JButton def = new JButton("Default");
+                apply.setPreferredSize(d);
+                def.setPreferredSize(d);
                 panelButtons.add(apply);
                 panelButtons.add(def);
 
-
+                // Adding everything to the dialog
                 jd.add(panelButtons, BorderLayout.SOUTH);
+                jd.add(panelBackgroundColor)
 
+                // dialog stuff
+                jd.setSize(400, 550);
                 jd.setLocationRelativeTo(null);
                 jd.setResizable(false);
-                jd.setSize(400, 600);
                 jd.setVisible(true);
 
                 break;
