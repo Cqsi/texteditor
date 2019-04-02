@@ -13,6 +13,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
     // Text component
     private JTextPane t;
     private JTextField tf;
+    private JButton changeBac;
 
     // Frame
     private JFrame f;
@@ -335,13 +336,25 @@ class editor extends JFrame implements ActionListener, KeyListener {
             case "Settings":
 
                 JDialog jd = new JDialog(f, "Settings");
+                changeBac = new JButton("Change Background");
+                changeBac.addActionListener(this);
+
+                jd.add(changeBac);
+                jd.setLocationRelativeTo(null);
+                jd.setResizable(false);
+                jd.setSize(200,200);
+                jd.setVisible(true);
 
                 break;
             case "Help":
                 JOptionPane.showMessageDialog(null, "Welcome to Casimir's Python TextEditor.\n\nHow to use:\n1. Write Python code.\n2. Click run.\n\nYou can also \"lock\" the file, which means that that file is automatically run when you click \"run\".");
                 break;
             default:
-                JOptionPane.showMessageDialog(null, "Something went wrong!");
+
+        }
+
+        if(e.getSource() == changeBac){
+            t.setBackground(Color.GREEN);
         }
     }
 
