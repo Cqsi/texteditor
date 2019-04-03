@@ -332,7 +332,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
                 unlock();
                 break;
             case "Help":
-                JOptionPane.showMessageDialog(null, "Welcome to Casimir's Python TextEditor.\n\nHow to use:\n1. Write Python code.\n2. Click run.\n\nYou can also \"lock\" the file, which means that that file is automatically run when you click \"run\".\n\nCommands: \n\n:r - Save and run\n:s - Save");
+                JOptionPane.showMessageDialog(null, "Welcome to Casimir's Python TextEditor.\n\nHow to use:\n1. Write Python code.\n2. Click run.\n\nYou can also \"lock\" the file, which means that that file is automatically run when you click \"run\".\n\nCommands: \n\n:r - Save and run\n:s - Save\n:l - Lock\n:u - Unlock");
                 break;
             default:
 
@@ -369,6 +369,20 @@ class editor extends JFrame implements ActionListener, KeyListener {
                 }else if(command.equals(":u")){
                     unlock();
                     tf.setText("");
+                }else if(command.equals(":cmd")){
+                    try{
+                        Desktop.getDesktop().open(new File("C:\\Windows\\system32\\cmd.exe"));
+                    }catch(IOException e1){
+                        e1.printStackTrace();
+                    }
+                }else if(command.equals(":git")){
+
+                    try {
+                        Desktop.getDesktop().open(new File("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Git\\Git Bash.lnk"));
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+
                 }else{
                    tf.setForeground(Color.RED);
                    int length = tf.getText().length();
