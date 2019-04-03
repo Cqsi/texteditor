@@ -4,6 +4,8 @@ import java.awt.*;
 import javax.swing.*;
 import java.io.*;
 import java.awt.event.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.plaf.metal.*;
 import javax.swing.text.*;
 
@@ -111,15 +113,11 @@ class editor extends JFrame implements ActionListener, KeyListener {
         unlock.addActionListener(this);
 
         // m4
-        JMenu m4 = new JMenu("Settings");
+        JMenu m4 = new JMenu("Help");
 
-        JMenuItem settings = new JMenuItem("Settings");
         JMenuItem help = new JMenuItem("Help");
-
-        m4.add(settings);
         m4.add(help);
 
-        settings.addActionListener(this);
         help.addActionListener(this);
 
         // adding all menus
@@ -220,7 +218,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
         f.setJMenuBar(mb);
         f.add(scroller);
         f.add(tf, BorderLayout.SOUTH);
-        f.setSize(800, Toolkit.getDefaultToolkit().getScreenSize().height-30);
+        f.setSize(800, Toolkit.getDefaultToolkit().getScreenSize().height-50);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setLocationRelativeTo(null);
         f.setVisible(true);
@@ -328,51 +326,13 @@ class editor extends JFrame implements ActionListener, KeyListener {
 
                 break;
             case "Lock":
-                path = m.getPath();
-                isLocked = true;
-                JOptionPane.showMessageDialog(null, "Locked your file!");
+                lock();
                 break;
             case "Unlock":
-                isLocked = false;
-                JOptionPane.showMessageDialog(null, "Unlocked you file!");
-                break;
-            case "Settings":
-
-                // dialog instance
-                JDialog jd = new JDialog(f, "Settings");
-
-                // panels
-                JPanel panelBackgroundColor = new JPanel();
-                JPanel panelKeywordsColor = new JPanel();
-                JPanel panelButtons = new JPanel();
-
-                // background settings panel
-                JLabel backgroundText = new JLabel("Background color ");
-                JButton changeBackgroundColor = new JButton("Change Color");
-                panelBackgroundColor.add(backgroundText);
-                panelBackgroundColor.add(changeBackgroundColor);
-
-                // Buttons at the bottom
-                JButton apply = new JButton("Apply");
-                JButton def = new JButton("Default");
-                apply.setPreferredSize(d);
-                def.setPreferredSize(d);
-                panelButtons.add(apply);
-                panelButtons.add(def);
-
-                // Adding everything to the dialog
-                jd.add(panelButtons, BorderLayout.SOUTH);
-                jd.add(panelBackgroundColor)
-
-                // dialog stuff
-                jd.setSize(400, 550);
-                jd.setLocationRelativeTo(null);
-                jd.setResizable(false);
-                jd.setVisible(true);
-
+                unlock();
                 break;
             case "Help":
-                JOptionPane.showMessageDialog(null, "Welcome to Casimir's Python TextEditor.\n\nHow to use:\n1. Write Python code.\n2. Click run.\n\nYou can also \"lock\" the file, which means that that file is automatically run when you click \"run\".");
+                JOptionPane.showMessageDialog(null, "Welcome to Casimir's Python TextEditor.\n\nHow to use:\n1. Write Python code.\n2. Click run.\n\nYou can also \"lock\" the file, which means that that file is automatically run when you click \"run\".\n\nCommands: \n\n:r - Save and run\n:s - Save");
                 break;
             default:
 
@@ -403,6 +363,38 @@ class editor extends JFrame implements ActionListener, KeyListener {
                 }else if(command.equals(":s")){
                     save(false);
                     tf.setText("");
+                }else if(command.equals(":l")){
+                    lock();
+                    tf.setText("");
+                }else if(command.equals(":u")){
+                    unlock();
+                    tf.setText("");
+                }else{
+                   tf.setForeground(Color.RED);
+                   int length = tf.getText().length();
+                   tf.getDocument().addDocumentListener(new DocumentListener() {
+                       @Override
+                       public void insertUpdate(DocumentEvent e) {
+                           changed();
+                       }
+
+                       @Override
+                       public void removeUpdate(DocumentEvent e) {
+                            changed();
+                       }
+
+                       @Override
+                       public void changedUpdate(DocumentEvent e) {
+                            changed();
+                       }
+
+                       private void changed(){
+                           if(tf.getText().length() != length){
+                               tf.setForeground(Color.WHITE);
+                               tf.getDocument().removeDocumentListener(this);
+                           }
+                       }
+                   });
                 }
 
             }
@@ -494,6 +486,21 @@ class editor extends JFrame implements ActionListener, KeyListener {
                     JOptionPane.showMessageDialog(null, "The file doesn't exist!");
                 }
             }
+        }
+    }
+
+    private void lock(){
+        path = m.getPath();
+        isLocked = true;
+        JOptionPane.showMessageDialog(null, "Locked your file!");
+    }
+
+    private void unlock(){
+        if(isLocked){
+            isLocked = false;
+            JOptionPane.showMessageDialog(null, "Unlocked you file!");
+        }else{
+            JOptionPane.showMessageDialog(null, "You haven't locked a file yet!");
         }
     }
 
