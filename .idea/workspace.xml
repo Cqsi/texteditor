@@ -6,12 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff36877a-9d55-45be-b84c-a00355b4bb9a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/texteditor/com/cqsi/editor$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/texteditor/com/cqsi/editor$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/texteditor/com/cqsi/editor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/texteditor/com/cqsi/editor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cqsi/editor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cqsi/editor.java" afterDir="false" />
-    </list>
+    <list default="true" id="ff36877a-9d55-45be-b84c-a00355b4bb9a" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +19,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cqsi/editor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="655">
+            <state relative-caret-position="-2779">
               <caret line="334" column="350" selection-start-line="334" selection-start-column="350" selection-end-line="334" selection-end-column="350" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -169,7 +164,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554385153678" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554385199631" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.14956012" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -212,7 +207,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19477054" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -228,7 +222,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32790446" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32790446" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32899022" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32899022" />
@@ -283,7 +277,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cqsi/editor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
+        <state relative-caret-position="-2779">
           <caret line="334" column="350" selection-start-line="334" selection-start-column="350" selection-end-line="334" selection-end-column="350" />
           <folding>
             <element signature="imports" expanded="true" />

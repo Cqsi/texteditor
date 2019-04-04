@@ -396,6 +396,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
                         } catch (IOException | URISyntaxException e1) {
                             e1.printStackTrace();
                         }
+                        tf.setText("");
                         break;
                     case ":w3":
                         try {
@@ -403,6 +404,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
                         } catch (IOException | URISyntaxException e1) {
                             e1.printStackTrace();
                         }
+                        tf.setText("");
                         break;
                     default:
                         tf.setForeground(Color.RED);
