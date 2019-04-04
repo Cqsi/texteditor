@@ -4,6 +4,8 @@ import java.awt.*;
 import javax.swing.*;
 import java.io.*;
 import java.awt.event.*;
+import java.net.URI;
+import java.net.URISyntaxException;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.plaf.metal.*;
@@ -17,8 +19,6 @@ class editor extends JFrame implements ActionListener, KeyListener {
     // Swing
     private JTextPane t;
     private JTextField tf;
-    private JButton colorBackground, colorKeywords;
-    private JColorChooser jColorChooser;
 
     // Variables
     private boolean saved = false, isLocked = false;
@@ -332,7 +332,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
                 unlock();
                 break;
             case "Help":
-                JOptionPane.showMessageDialog(null, "Welcome to Casimir's Python TextEditor.\n\nHow to use:\n1. Write Python code.\n2. Click run.\n\nYou can also \"lock\" the file, which means that that file is automatically run when you click \"run\".\n\nCommands: \n\n:r - Save and run\n:s - Save\n:l - Lock\n:u - Unlock");
+                JOptionPane.showMessageDialog(null, "Welcome to Casimir's Python TextEditor.\n\nHow to use:\n1. Write Python code.\n2. Click run.\n\nYou can also \"lock\" the file, which means that that file is automatically run when you click \"run\".\n\nCommands: \n\n:r - Save and run\n:s - Save\n:l - Lock\n:git - Opens git bash\n:cmd - Opens CMD\n:u - Unlock\n:github - Opens Github\n:w3 - Opens W3-Schools");
                 break;
             default:
 
@@ -357,58 +357,80 @@ class editor extends JFrame implements ActionListener, KeyListener {
 
                 String command = tf.getText();
 
-                if(command.equals(":r")){
-                    save(true);
-                    tf.setText("");
-                }else if(command.equals(":s")){
-                    save(false);
-                    tf.setText("");
-                }else if(command.equals(":l")){
-                    lock();
-                    tf.setText("");
-                }else if(command.equals(":u")){
-                    unlock();
-                    tf.setText("");
-                }else if(command.equals(":cmd")){
-                    try{
-                        Desktop.getDesktop().open(new File("C:\\Windows\\system32\\cmd.exe"));
-                    }catch(IOException e1){
-                        e1.printStackTrace();
-                    }
-                }else if(command.equals(":git")){
+                switch (command) {
+                    case ":r":
+                        save(true);
+                        tf.setText("");
+                        break;
+                    case ":s":
+                        save(false);
+                        tf.setText("");
+                        break;
+                    case ":l":
+                        lock();
+                        tf.setText("");
+                        break;
+                    case ":u":
+                        unlock();
+                        tf.setText("");
+                        break;
+                    case ":cmd":
+                        try {
+                            Desktop.getDesktop().open(new File("C:\\Windows\\system32\\cmd.exe"));
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        tf.setText("");
+                        break;
+                    case ":git":
+                        try {
+                            Desktop.getDesktop().open(new File("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Git\\Git Bash.lnk"));
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        tf.setText("");
+                        break;
+                    case ":github":
+                        try {
+                            Desktop.getDesktop().browse(new URI("https://github.com/"));
+                        } catch (IOException | URISyntaxException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    case ":w3":
+                        try {
+                            Desktop.getDesktop().browse(new URI("https://www.w3schools.com/python/"));
+                        } catch (IOException | URISyntaxException e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+                    default:
+                        tf.setForeground(Color.RED);
+                        int length = tf.getText().length();
+                        tf.getDocument().addDocumentListener(new DocumentListener() {
+                            @Override
+                            public void insertUpdate(DocumentEvent e) {
+                                changed();
+                            }
 
-                    try {
-                        Desktop.getDesktop().open(new File("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Git\\Git Bash.lnk"));
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }
+                            @Override
+                            public void removeUpdate(DocumentEvent e) {
+                                changed();
+                            }
 
-                }else{
-                   tf.setForeground(Color.RED);
-                   int length = tf.getText().length();
-                   tf.getDocument().addDocumentListener(new DocumentListener() {
-                       @Override
-                       public void insertUpdate(DocumentEvent e) {
-                           changed();
-                       }
+                            @Override
+                            public void changedUpdate(DocumentEvent e) {
+                                changed();
+                            }
 
-                       @Override
-                       public void removeUpdate(DocumentEvent e) {
-                            changed();
-                       }
-
-                       @Override
-                       public void changedUpdate(DocumentEvent e) {
-                            changed();
-                       }
-
-                       private void changed(){
-                           if(tf.getText().length() != length){
-                               tf.setForeground(Color.WHITE);
-                               tf.getDocument().removeDocumentListener(this);
-                           }
-                       }
-                   });
+                            private void changed() {
+                                if (tf.getText().length() != length) {
+                                    tf.setForeground(Color.WHITE);
+                                    tf.getDocument().removeDocumentListener(this);
+                                }
+                            }
+                        });
+                        break;
                 }
 
             }
