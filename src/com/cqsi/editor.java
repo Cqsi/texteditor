@@ -32,6 +32,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
     private Color darkblue = new Color(106,90,205);
     private Color darkred = new Color(128,0,0);
     private Color limegreen = new Color(50,205,50);
+    private Color aqua = new Color(51, 178, 160);
 
     // Fonts & Dimensions
     private Font consolas = new Font("Consolas", Font.PLAIN, 20);
@@ -134,6 +135,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
         final AttributeSet attrDarkBlue = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, darkblue);
         final AttributeSet attrDarkRed = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, darkred);
         final AttributeSet attrLimeGreen = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, limegreen);
+        final AttributeSet attrAqua = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, aqua);
 
         doc = new DefaultStyledDocument() {
 
@@ -160,6 +162,8 @@ class editor extends JFrame implements ActionListener, KeyListener {
                             setCharacterAttributes(wordL, wordR - wordL, attrLimeGreen, false);
                         }else if(text.substring(wordL, wordR).matches("(\\W)*(True|False)")){
                             setCharacterAttributes(wordL, wordR - wordL, attrDarkRed, false);
+                        }else if(text.substring(wordL, wordR).matches("(\\W)*(return|lambda)")){
+                            setCharacterAttributes(wordL, wordR - wordL, attrAqua, false);
                         }else {
                             setCharacterAttributes(wordL, wordR - wordL, attrWhite, false);
                         }
@@ -188,6 +192,8 @@ class editor extends JFrame implements ActionListener, KeyListener {
                     setCharacterAttributes(before, after - before, attrLimeGreen, false);
                 }else if (text.substring(before, after).matches("(\\W)*(True|False)")) {
                     setCharacterAttributes(before, after - before, attrDarkRed, false);
+                }else if (text.substring(before, after).matches("(\\W)*(return|lambda)")) {
+                    setCharacterAttributes(before, after - before, attrAqua, false);
                 }else {
                     setCharacterAttributes(before, after - before, attrWhite, false);
                 }
