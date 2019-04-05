@@ -208,7 +208,10 @@ class editor extends JFrame implements ActionListener, KeyListener {
         t.setBackground(Color.BLACK);
         t.setBorder(BorderFactory.createEmptyBorder(5, 5, 0, 5));
 
-        JScrollPane scroller = new JScrollPane(t, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        JPanel nowrapPanel = new JPanel(new BorderLayout());
+        nowrapPanel.add(t);
+
+        JScrollPane scroller = new JScrollPane(nowrapPanel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
         // textfield
         tf = new JTextField();
