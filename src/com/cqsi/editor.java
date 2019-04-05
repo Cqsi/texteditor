@@ -476,8 +476,12 @@ class editor extends JFrame implements ActionListener, KeyListener {
                     BufferedWriter w = new BufferedWriter(wr);
 
                     // Write
+                    //w.write("import traceback\n\n");
+                    //w.write("try:\n");
                     w.write(t.getText());
-                    w.write("\ninput(\"Press Enter to exit... \")");
+                    //w.write("\nexcept:\n");
+                    //w.write("    "+"print(traceback.format_exc())");
+                    w.write("\n\ninput(\"Press Enter to exit... \")");
 
                     w.flush();
                     w.close();
@@ -516,8 +520,12 @@ class editor extends JFrame implements ActionListener, KeyListener {
                 BufferedWriter w = new BufferedWriter(wr);
 
                 // Write
+                //w.write("import traceback\n\n");
+                //w.write("try:\n");
                 w.write(t.getText());
-                w.write("\ninput(\"Press Enter to exit... \")");
+                //w.write("\nexcept:\n");
+                //w.write("    "+"print(traceback.format_exc())");
+                w.write("\n\ninput(\"Press Enter to exit... \")");
 
                 w.flush();
                 w.close();

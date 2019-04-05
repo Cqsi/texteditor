@@ -8,6 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ff36877a-9d55-45be-b84c-a00355b4bb9a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cqsi/editor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cqsi/editor.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cqsi/editor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="164" column="89" selection-start-line="164" selection-start-column="89" selection-end-line="164" selection-end-column="89" />
+            <state relative-caret-position="298">
+              <caret line="483" column="70" selection-start-line="483" selection-start-column="70" selection-end-line="483" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -82,7 +83,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -94,6 +95,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -116,7 +118,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -203,8 +204,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19903949" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20330843" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -242,8 +244,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cqsi/editor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="164" column="89" selection-start-line="164" selection-start-column="89" selection-end-line="164" selection-end-column="89" />
+        <state relative-caret-position="298">
+          <caret line="483" column="70" selection-start-line="483" selection-start-column="70" selection-end-line="483" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
