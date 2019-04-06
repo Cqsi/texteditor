@@ -23,6 +23,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
     // Variables
     private boolean saved = false, isLocked = false;
     private methods m;
+    private ColoringMethods cm;
     private focuslistener foc;
     private String path;
 
@@ -47,6 +48,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
     {
 
         m = new methods();
+        cm = new ColoringMethods();
         foc = new focuslistener();
 
         // Create a frame
@@ -146,9 +148,9 @@ class editor extends JFrame implements ActionListener, KeyListener {
                 super.insertString(offset, str, a);
 
                 String text = getText(0, getLength());
-                int before = m.findLastNonWordChar(text, offset);
+                int before = cm.findLastNonWordChar(text, offset);
                 if (before < 0) before = 0;
-                int after = m.findFirstNonWordChar(text, offset + str.length());
+                int after = cm.findFirstNonWordChar(text, offset + str.length());
                 int wordL = before;
                 int wordR = before;
 
@@ -182,9 +184,9 @@ class editor extends JFrame implements ActionListener, KeyListener {
                 super.remove(offs, len);
 
                 String text = getText(0, getLength());
-                int before = m.findLastNonWordChar(text, offs);
+                int before = cm.findLastNonWordChar(text, offs);
                 if (before < 0) before = 0;
-                int after = m.findFirstNonWordChar(text, offs);
+                int after = cm.findFirstNonWordChar(text, offs);
 
                 if (text.substring(before, after).matches("(\\W)*(from|import)")) {
                     setCharacterAttributes(before, after - before, attr, false);
