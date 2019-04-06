@@ -1,4 +1,4 @@
-package com.cqsi;
+package com.cqsi.Main;
 
 public class Main {
     public static void main(String args[])

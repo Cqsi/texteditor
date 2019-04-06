@@ -1,4 +1,8 @@
-package com.cqsi;
+package com.cqsi.Main;
+
+import com.cqsi.Methods.ColoringMethods;
+import com.cqsi.Listeners.focuslistener;
+import com.cqsi.Methods.otherMethods;
 
 import java.awt.*;
 import javax.swing.*;
@@ -22,7 +26,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
 
     // Variables
     private boolean saved = false, isLocked = false;
-    private methods m;
+    private otherMethods m;
     private ColoringMethods cm;
     private focuslistener foc;
     private String path;
@@ -47,7 +51,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
     public editor()
     {
 
-        m = new methods();
+        m = new otherMethods();
         cm = new ColoringMethods();
         foc = new focuslistener();
 

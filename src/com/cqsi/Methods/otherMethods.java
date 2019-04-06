@@ -1,8 +1,8 @@
-package com.cqsi;
+package com.cqsi.Methods;
 
 import javax.swing.*;
 
-public class methods {
+public class otherMethods {
 
     public String getPath(){
 

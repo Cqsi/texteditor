@@ -1,4 +1,4 @@
-package com.cqsi;
+package com.cqsi.Methods;
 
 import javax.swing.*;
 

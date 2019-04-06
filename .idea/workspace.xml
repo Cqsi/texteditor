@@ -6,10 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff36877a-9d55-45be-b84c-a00355b4bb9a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/cqsi/editor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cqsi/editor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cqsi/methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cqsi/ColoringMethods.java" afterDir="false" />
-    </list>
+    <list default="true" id="ff36877a-9d55-45be-b84c-a00355b4bb9a" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cqsi/editor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="543" lean-forward="true" selection-start-line="543" selection-end-line="543" />
+            <state relative-caret-position="445">
+              <caret line="560" column="26" selection-start-line="560" selection-start-column="26" selection-end-line="560" selection-end-column="26" />
               <folding>
                 <element signature="e#16209#16210#0" expanded="true" />
                 <element signature="e#16282#16283#0" expanded="true" />
@@ -153,7 +150,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554558833235" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554559316331" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.14956012" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -174,7 +171,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Run" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="com.cqsi.Main" />
+      <option name="MAIN_CLASS_NAME" value="com.cqsi.Main.Main" />
       <module name="texteditor" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -196,9 +193,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20681818" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20681818" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -207,12 +203,12 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32790446" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32676518" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32790446" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32676518" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32899022" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32899022" />
@@ -268,8 +264,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cqsi/editor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="543" lean-forward="true" selection-start-line="543" selection-end-line="543" />
+        <state relative-caret-position="445">
+          <caret line="560" column="26" selection-start-line="560" selection-start-column="26" selection-end-line="560" selection-end-column="26" />
           <folding>
             <element signature="e#16209#16210#0" expanded="true" />
             <element signature="e#16282#16283#0" expanded="true" />
