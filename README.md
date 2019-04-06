@@ -10,10 +10,10 @@ Hope you enjoy.
 COMMANDS:
 
 :r = Save and run <br />
-:s = Save only
-:l = Lock a file (so you don't have to choose the same file everytime you run)
-:u = Unlock the file
-:cmd = Opens CMD
-:git = Opens git bash
-:github = Opens the Github website
-:w3 = Opens W3-Schools lol 
+:s = Save only <br />
+:l = Lock a file (so you don't have to choose the same file everytime you run) <br />
+:u = Unlock the file <br />
+:cmd = Opens CMD <br />
+:git = Opens git bash <br />
+:github = Opens the Github website <br />
+:w3 = Opens W3-Schools lol <br />
