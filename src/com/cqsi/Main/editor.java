@@ -464,7 +464,6 @@ class editor extends JFrame implements ActionListener, KeyListener {
     public void keyReleased(KeyEvent e) {}
 
 
-
     private void save(boolean isRun){
 
         if(!isLocked){

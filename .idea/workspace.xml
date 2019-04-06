@@ -6,7 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff36877a-9d55-45be-b84c-a00355b4bb9a" name="Default Changelist" comment="" />
+    <list default="true" id="ff36877a-9d55-45be-b84c-a00355b4bb9a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/texteditor/com/cqsi/Main/editor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/texteditor/com/cqsi/Main/editor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cqsi/Main/editor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cqsi/Main/editor.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,36 +21,61 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/cqsi/editor.java">
+        <entry file="file://$PROJECT_DIR$/src/com/cqsi/Main/editor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="560" column="26" selection-start-line="560" selection-start-column="26" selection-end-line="560" selection-end-column="26" />
+            <state relative-caret-position="-1408">
+              <caret line="463" column="42" selection-start-line="463" selection-start-column="42" selection-end-line="463" selection-end-column="42" />
               <folding>
-                <element signature="e#16209#16210#0" expanded="true" />
-                <element signature="e#16282#16283#0" expanded="true" />
-                <element signature="e#16393#16394#0" expanded="true" />
                 <element signature="e#16466#16467#0" expanded="true" />
-                <element signature="e#16578#16579#0" expanded="true" />
-                <element signature="e#16651#16652#0" expanded="true" />
+                <element signature="e#16539#16540#0" expanded="true" />
+                <element signature="e#16650#16651#0" expanded="true" />
+                <element signature="e#16723#16724#0" expanded="true" />
+                <element signature="e#16835#16836#0" expanded="true" />
+                <element signature="e#16908#16909#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cqsi/ColoringMethods.java">
+        <entry file="file://$PROJECT_DIR$/src/com/cqsi/Main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+            <state>
+              <caret column="22" selection-start-column="22" selection-end-column="22" />
+              <folding>
+                <element signature="e#116#117#0" expanded="true" />
+                <element signature="e#155#156#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cqsi/methods.java">
+        <entry file="file://$PROJECT_DIR$/src/com/cqsi/Methods/ColoringMethods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+            <state relative-caret-position="68">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cqsi/Methods/otherMethods.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cqsi/Listeners/focuslistener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -69,6 +98,9 @@
         <option value="$PROJECT_DIR$/src/com/cqsi/ColoringMethods.java" />
         <option value="$PROJECT_DIR$/src/com/cqsi/methods.java" />
         <option value="$PROJECT_DIR$/src/com/cqsi/editor.java" />
+        <option value="$PROJECT_DIR$/src/com/cqsi/Main/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/cqsi/Listeners/keylistener.java" />
+        <option value="$PROJECT_DIR$/src/com/cqsi/Main/editor.java" />
       </list>
     </option>
   </component>
@@ -84,6 +116,36 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="texteditor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="texteditor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="texteditor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="texteditor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="texteditor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="texteditor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cqsi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="texteditor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="texteditor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cqsi" type="462c0819:PsiDirectoryNode" />
+              <item name="Listeners" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -124,33 +186,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="texteditor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="texteditor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="texteditor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="texteditor" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="texteditor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="texteditor" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="cqsi" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554559316331" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554561192626" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.14956012" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -192,9 +231,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20681818" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20984848" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -203,7 +243,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32676518" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32676518" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -211,7 +251,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32676518" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32899022" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32899022" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32840723" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -224,55 +264,69 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.desktop/java/awt/Component.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/cqsi/Main.java">
+    <entry file="file://$PROJECT_DIR$/texteditor.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqsi/Methods/otherMethods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#86#87#0" expanded="true" />
-            <element signature="e#125#126#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cqsi/focuslistener.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cqsi/Listeners/focuslistener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="34" />
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/texteditor.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cqsi/methods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cqsi/ColoringMethods.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cqsi/Methods/ColoringMethods.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cqsi/editor.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cqsi/Main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="560" column="26" selection-start-line="560" selection-start-column="26" selection-end-line="560" selection-end-column="26" />
+        <state>
+          <caret column="22" selection-start-column="22" selection-end-column="22" />
           <folding>
-            <element signature="e#16209#16210#0" expanded="true" />
-            <element signature="e#16282#16283#0" expanded="true" />
-            <element signature="e#16393#16394#0" expanded="true" />
+            <element signature="e#116#117#0" expanded="true" />
+            <element signature="e#155#156#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqsi/Listeners/keylistener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4319#4320#0" expanded="true" />
+            <element signature="e#4338#4339#0" expanded="true" />
+            <element signature="e#4387#4388#0" expanded="true" />
+            <element signature="e#4413#4414#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cqsi/Main/editor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1408">
+          <caret line="463" column="42" selection-start-line="463" selection-start-column="42" selection-end-line="463" selection-end-column="42" />
+          <folding>
             <element signature="e#16466#16467#0" expanded="true" />
-            <element signature="e#16578#16579#0" expanded="true" />
-            <element signature="e#16651#16652#0" expanded="true" />
+            <element signature="e#16539#16540#0" expanded="true" />
+            <element signature="e#16650#16651#0" expanded="true" />
+            <element signature="e#16723#16724#0" expanded="true" />
+            <element signature="e#16835#16836#0" expanded="true" />
+            <element signature="e#16908#16909#0" expanded="true" />
           </folding>
         </state>
       </provider>
