@@ -16,4 +16,4 @@ COMMANDS:
 :cmd = Opens CMD
 :git = Opens git bash
 :github = Opens the Github website
-:w3 = Opens W3-Schools lol
+:w3 = Opens W3-Schools lol 
