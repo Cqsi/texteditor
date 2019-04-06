@@ -9,7 +9,7 @@ Hope you enjoy.
 
 COMMANDS:
 
-:r = Save and run
+:r = Save and run_
 :s = Save only
 :l = Lock a file (so you don't have to choose the same file everytime you run)
 :u = Unlock the file
