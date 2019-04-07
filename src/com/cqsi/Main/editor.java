@@ -10,6 +10,8 @@ import java.io.*;
 import java.awt.event.*;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.plaf.metal.*;
@@ -487,11 +489,16 @@ class editor extends JFrame implements ActionListener, KeyListener {
                     BufferedWriter w = new BufferedWriter(wr);
 
                     // Write
-                    //w.write("import traceback\n\n");
-                    //w.write("try:\n");
-                    w.write(t.getText());
-                    //w.write("\nexcept:\n");
-                    //w.write("    "+"print(traceback.format_exc())");
+                    ArrayList<String> lines = new ArrayList<String>(Arrays.asList(t.getText().split("\\n")));
+
+                    w.write("import traceback\n\n");
+                    w.write("try:\n");
+                    //w.write(t.getText());
+                    for (String line : lines) {
+                        w.write("\t" + line);
+                    }
+                    w.write("\nexcept:\n");
+                    w.write("    "+"print(traceback.format_exc())");
                     w.write("\n\ninput(\"Press Enter to exit... \")");
 
                     w.flush();
@@ -531,11 +538,16 @@ class editor extends JFrame implements ActionListener, KeyListener {
                 BufferedWriter w = new BufferedWriter(wr);
 
                 // Write
-                //w.write("import traceback\n\n");
-                //w.write("try:\n");
-                w.write(t.getText());
-                //w.write("\nexcept:\n");
-                //w.write("    "+"print(traceback.format_exc())");
+                ArrayList<String> lines = new ArrayList<String>(Arrays.asList(t.getText().split("\\n")));
+
+                w.write("import traceback\n\n");
+                w.write("try:\n");
+                //w.write(t.getText());
+                for (String line : lines) {
+                    w.write("\t" + line);
+                }
+                w.write("\nexcept:\n");
+                w.write("    "+"print(traceback.format_exc())");
                 w.write("\n\ninput(\"Press Enter to exit... \")");
 
                 w.flush();
