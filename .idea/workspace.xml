@@ -8,6 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ff36877a-9d55-45be-b84c-a00355b4bb9a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/texteditor/com/cqsi/Main/editor$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/texteditor/com/cqsi/Main/editor$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/texteditor/com/cqsi/Main/editor$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/texteditor/com/cqsi/Main/editor$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/texteditor/com/cqsi/Main/editor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/texteditor/com/cqsi/Main/editor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/cqsi/Main/editor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cqsi/Main/editor.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -36,12 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cqsi/Main/editor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="535" lean-forward="true" selection-start-line="535" selection-end-line="535" />
-              <folding>
-                <element signature="e#18250#18258#0" expanded="true" />
-                <element signature="e#19998#20006#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="539">
+              <caret line="316" column="36" selection-start-line="316" selection-start-column="36" selection-end-line="316" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -155,7 +154,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554616458761" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554657540930" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.14956012" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -197,10 +196,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21184632" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2139808" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -267,12 +266,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cqsi/Main/editor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="535" lean-forward="true" selection-start-line="535" selection-end-line="535" />
-          <folding>
-            <element signature="e#18250#18258#0" expanded="true" />
-            <element signature="e#19998#20006#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="539">
+          <caret line="316" column="36" selection-start-line="316" selection-start-column="36" selection-end-line="316" selection-end-column="36" />
         </state>
       </provider>
     </entry>

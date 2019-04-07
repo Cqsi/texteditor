@@ -164,7 +164,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
                     if (wordR == after || String.valueOf(text.charAt(wordR)).matches("\\W")) {
                         if (text.substring(wordL, wordR).matches("(\\W)*(from|import)")) {
                             setCharacterAttributes(wordL, wordR - wordL, attr, false);
-                        } else if(text.substring(wordL, wordR).matches("(\\W)*(def|or|not|is|while|class|if|in|else|elif|for)")){
+                        } else if(text.substring(wordL, wordR).matches("(\\W)*(def|or|not|is|while|class|if|in|else|elif|for|del|try|except)")){
                             setCharacterAttributes(wordL, wordR - wordL, attrYellow, false);
                         }else if(text.substring(wordL, wordR).matches("(\\W)*(#)")){
                             setCharacterAttributes(wordL, wordR - wordL, attrDarkBlue, false);
@@ -196,7 +196,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
 
                 if (text.substring(before, after).matches("(\\W)*(from|import)")) {
                     setCharacterAttributes(before, after - before, attr, false);
-                }else if (text.substring(before, after).matches("(\\W)*(def|or|not|is|while|class|if|in|else|elif|for)")) {
+                }else if (text.substring(before, after).matches("(\\W)*(def|or|not|is|while|class|if|in|else|elif|for|del|try|except)")) {
                     setCharacterAttributes(before, after - before, attrYellow, false);
                 }else if (text.substring(before, after).matches("(\\W)*(#)")) {
                     setCharacterAttributes(before, after - before, attrDarkBlue, false);
