@@ -372,6 +372,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
             if(!foc.isTfbool()){
                 tf.requestFocusInWindow();
             }else{
+                tf.setText("");
                 t.requestFocusInWindow();
             }
         }
