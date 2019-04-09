@@ -8,9 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ff36877a-9d55-45be-b84c-a00355b4bb9a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/texteditor/com/cqsi/Main/editor$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/texteditor/com/cqsi/Main/editor$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/texteditor/com/cqsi/Main/editor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/texteditor/com/cqsi/Main/editor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cqsi/Main/editor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cqsi/Main/editor.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,6 +77,35 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="texteditor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="texteditor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="texteditor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="texteditor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="texteditor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="texteditor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cqsi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="texteditor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="texteditor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cqsi" type="462c0819:PsiDirectoryNode" />
+              <item name="Main" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -121,35 +147,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="texteditor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="texteditor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="texteditor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="texteditor" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="texteditor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="texteditor" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="cqsi" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="texteditor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="texteditor" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="cqsi" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -199,7 +196,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21824974" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22038421" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />

@@ -553,6 +553,10 @@ class editor extends JFrame implements ActionListener, KeyListener {
 
                 w.flush();
                 w.close();
+
+                if(!isRun){
+                    JOptionPane.showMessageDialog(null, "Saved the file " + path);
+                }
             }
             catch (Exception evt) {
                 JOptionPane.showMessageDialog(f, evt.getMessage());
