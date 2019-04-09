@@ -525,7 +525,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
             }
             // If the user cancelled the operation
             else
-                JOptionPane.showMessageDialog(f, "the user cancelled the operation");
+                JOptionPane.showMessageDialog(f, "The user cancelled the operation");
         }else{
 
             // Set the label to the path of the selected directory
@@ -574,8 +574,17 @@ class editor extends JFrame implements ActionListener, KeyListener {
 
     private void lock(){
         path = m.getPath();
-        isLocked = true;
-        JOptionPane.showMessageDialog(null, "Locked your file!");
+
+        if(path != null){
+            if(new File(path).exists()){
+                isLocked = true;
+                JOptionPane.showMessageDialog(null, "Locked your file!");
+            }else{
+                JOptionPane.showMessageDialog(null, "The file " + path + " doesn't exist!");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null,"The user canceled the operation!");
+        }
     }
 
     private void unlock(){
