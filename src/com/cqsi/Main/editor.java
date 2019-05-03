@@ -26,6 +26,9 @@ class editor extends JFrame implements ActionListener, KeyListener {
     private JTextPane t;
     private JTextField tf;
 
+    // Font names
+    private final String[] fontnames = {"Consolas", ""};
+
     // Variables
     private boolean saved = false, isLocked = false;
     private otherMethods m;
@@ -42,8 +45,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
     private Color aqua = new Color(51, 178, 160);
     private Color purple = new Color(139,0,139);
 
-    // Fonts & Dimensions
-    private Font consolas = new Font("Consolas", Font.PLAIN, 20);
+    // Dimensions
     private Dimension d = new Dimension(80,40);
 
     // DefaultStyledDocument
@@ -123,11 +125,14 @@ class editor extends JFrame implements ActionListener, KeyListener {
         unlock.addActionListener(this);
 
         // m4
-        JMenu m4 = new JMenu("Help");
+        JMenu m4 = new JMenu("Settings");
 
+        JMenuItem settings = new JMenuItem("Settings");
         JMenuItem help = new JMenuItem("Help");
+        m4.add(settings);
         m4.add(help);
 
+        settings.addActionListener(this);
         help.addActionListener(this);
 
         // adding all menus
@@ -216,7 +221,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
 
         // Text component
         t = new JTextPane(doc);
-        t.setFont(consolas);
+        t.setFont(new Font(fontnames[0], Font.PLAIN, 20));
         t.setCaretColor(Color.YELLOW);
         t.addKeyListener(this);
         t.setBackground(Color.BLACK);
@@ -230,7 +235,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
         // textfield
         tf = new JTextField();
         tf.setBackground(Color.BLACK);
-        tf.setFont(consolas);
+        tf.setFont(new Font(fontnames[0], Font.PLAIN, 20));
         tf.setForeground(Color.WHITE);
         tf.addKeyListener(this);
         tf.addFocusListener(foc);
@@ -357,6 +362,40 @@ class editor extends JFrame implements ActionListener, KeyListener {
             case "Help":
                 JOptionPane.showMessageDialog(null, "Welcome to Casimir's Python TextEditor.\n\nHow to use:\n1. Write Python code.\n2. Click run.\n\nYou can also \"lock\" the file, which means that that file is automatically run when you click \"run\".\n\nCommands: \n\n:r - Save and run\n:s - Save\n:l - Lock\n:git - Opens git bash\n:cmd - Opens CMD\n:u - Unlock\n:github - Opens Github\n:w3 - Opens W3-Schools");
                 break;
+            case "Settings":
+
+                JDialog dialog = new JDialog(f, "Settings");
+
+                JPanel leftpanel = new JPanel();
+                JPanel rightpanel = new JPanel();
+                JPanel bottompanel = new JPanel();
+
+                // left panel
+                JLabel font = new JLabel("Font: ");
+                font.setFont(new Font("Serif", Font.PLAIN, 18));
+                leftpanel.add(font);
+
+                //right panel
+                JComboBox<String> fontComboBox = new JComboBox<String>(fontnames);
+                rightpanel.add(fontComboBox);
+
+                //bottom panel
+                JButton defaultSettings = new JButton("Default");
+                defaultSettings.addActionListener(this);
+                JButton applySettings = new JButton("Apply");
+                defaultSettings.addActionListener(this);
+
+                bottompanel.add(defaultSettings);
+                bottompanel.add(applySettings);
+
+                dialog.add(leftpanel);
+                dialog.add(rightpanel, BorderLayout.EAST);
+                dialog.add(bottompanel, BorderLayout.SOUTH);
+                dialog.pack();
+                dialog.setResizable(false);
+                dialog.setLocationRelativeTo(null);
+                dialog.setVisible(true);
+
             default:
 
         }
