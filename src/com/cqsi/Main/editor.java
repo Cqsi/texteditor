@@ -374,16 +374,16 @@ class editor extends JFrame implements ActionListener, KeyListener {
                 // panel
                 JLabel font = new JLabel("Font: ");
                 font.setFont(labelfont);
-
                 JComboBox<String> fontComboBox = new JComboBox<String>(fontnames);
 
                 JLabel keywordsColor = new JLabel("Keywords color: ");
                 keywordsColor.setFont(labelfont);
+                JRadioButton keywordsColorCheck = new JRadioButton();
 
+                // adding everything
                 panel.add(font);
                 panel.add(fontComboBox);
                 panel.add(keywordsColor);
-
 
                 //bottom panel
                 JButton defaultSettings = new JButton("Default");

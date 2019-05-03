@@ -39,8 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cqsi/Main/editor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="409" column="33" selection-start-line="409" selection-start-column="33" selection-end-line="409" selection-end-column="33" />
+            <state relative-caret-position="701">
+              <caret line="387" lean-forward="true" selection-start-line="387" selection-end-line="387" />
               <folding>
                 <element signature="e#14278#14286#0" expanded="true" />
                 <element signature="e#14862#14863#0" expanded="true" />
@@ -206,7 +206,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3257329" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3257329" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -264,8 +264,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cqsi/Main/editor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="409" column="33" selection-start-line="409" selection-start-column="33" selection-end-line="409" selection-end-column="33" />
+        <state relative-caret-position="701">
+          <caret line="387" lean-forward="true" selection-start-line="387" selection-end-line="387" />
           <folding>
             <element signature="e#14278#14286#0" expanded="true" />
             <element signature="e#14862#14863#0" expanded="true" />
