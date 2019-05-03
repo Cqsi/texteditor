@@ -27,7 +27,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
     private JTextField tf;
 
     // Font names
-    private final String[] fontnames = {"Consolas", ""};
+    private final String[] fontnames = {"Consolas", "Courier"};
 
     // Variables
     private boolean saved = false, isLocked = false;
@@ -366,32 +366,48 @@ class editor extends JFrame implements ActionListener, KeyListener {
 
                 JDialog dialog = new JDialog(f, "Settings");
 
-                JPanel leftpanel = new JPanel();
-                JPanel rightpanel = new JPanel();
+                JPanel panel = new JPanel();
                 JPanel bottompanel = new JPanel();
 
-                // left panel
-                JLabel font = new JLabel("Font: ");
-                font.setFont(new Font("Serif", Font.PLAIN, 18));
-                leftpanel.add(font);
+                Font labelfont = new Font("Serif", Font.PLAIN, 18);
 
-                //right panel
+                // panel
+                JLabel font = new JLabel("Font: ");
+                font.setFont(labelfont);
+
                 JComboBox<String> fontComboBox = new JComboBox<String>(fontnames);
-                rightpanel.add(fontComboBox);
+
+                JLabel keywordsColor = new JLabel("Keywords color: ");
+                keywordsColor.setFont(labelfont);
+
+                panel.add(font);
+                panel.add(fontComboBox);
+                panel.add(keywordsColor);
+
 
                 //bottom panel
                 JButton defaultSettings = new JButton("Default");
-                defaultSettings.addActionListener(this);
+                defaultSettings.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        fontComboBox.setSelectedIndex(0);
+                    }
+                });
                 JButton applySettings = new JButton("Apply");
-                defaultSettings.addActionListener(this);
+                applySettings.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        tf.setFont(new Font(fontComboBox.getSelectedItem().toString(), Font.PLAIN, 20));
+                        t.setFont(new Font(fontComboBox.getSelectedItem().toString(), Font.PLAIN, 20));
+                    }
+                });
 
                 bottompanel.add(defaultSettings);
                 bottompanel.add(applySettings);
 
-                dialog.add(leftpanel);
-                dialog.add(rightpanel, BorderLayout.EAST);
+                dialog.add(panel, BorderLayout.CENTER);
                 dialog.add(bottompanel, BorderLayout.SOUTH);
-                dialog.pack();
+                dialog.setSize(250,200);
                 dialog.setResizable(false);
                 dialog.setLocationRelativeTo(null);
                 dialog.setVisible(true);
