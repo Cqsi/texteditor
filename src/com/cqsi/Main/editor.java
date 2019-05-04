@@ -55,6 +55,14 @@ class editor extends JFrame implements ActionListener, KeyListener {
     public editor()
     {
 
+        try {
+            GraphicsEnvironment ge =
+                    GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("A.ttf")));
+        } catch (IOException|FontFormatException e) {
+            //Handle exception
+        }
+
         m = new otherMethods();
         cm = new ColoringMethods();
         foc = new focuslistener();
@@ -376,14 +384,10 @@ class editor extends JFrame implements ActionListener, KeyListener {
                 font.setFont(labelfont);
                 JComboBox<String> fontComboBox = new JComboBox<String>(fontnames);
 
-                JLabel keywordsColor = new JLabel("Keywords color: ");
-                keywordsColor.setFont(labelfont);
-                JRadioButton keywordsColorCheck = new JRadioButton();
 
                 // adding everything
                 panel.add(font);
                 panel.add(fontComboBox);
-                panel.add(keywordsColor);
 
                 //bottom panel
                 JButton defaultSettings = new JButton("Default");
