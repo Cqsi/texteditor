@@ -27,7 +27,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
     private JTextField tf;
 
     // Font names
-    private final String[] fontnames = {"Consolas", "Courier"};
+    private final String[] fontnames = {"Consolas", "Source Code Pro"};
 
     // Variables
     private boolean saved = false, isLocked = false;
@@ -47,6 +47,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
 
     // Dimensions
     private Dimension d = new Dimension(80,40);
+    private Font sourceCodePro;
 
     // DefaultStyledDocument
     private DefaultStyledDocument doc;
@@ -56,11 +57,12 @@ class editor extends JFrame implements ActionListener, KeyListener {
     {
 
         try {
-            GraphicsEnvironment ge =
-                    GraphicsEnvironment.getLocalGraphicsEnvironment();
-            ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("A.ttf")));
+            sourceCodePro = Font.createFont(Font.TRUETYPE_FONT, new File("C:\\Users\\Capsimir\\Desktop\\texteditor\\res\\fonts\\SourceCodePro-Regular.ttf"));
+            sourceCodePro = sourceCodePro.deriveFont(20.0f);
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(sourceCodePro);
         } catch (IOException|FontFormatException e) {
-            //Handle exception
+            e.printStackTrace();
         }
 
         m = new otherMethods();
@@ -401,8 +403,13 @@ class editor extends JFrame implements ActionListener, KeyListener {
                 applySettings.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        tf.setFont(new Font(fontComboBox.getSelectedItem().toString(), Font.PLAIN, 20));
-                        t.setFont(new Font(fontComboBox.getSelectedItem().toString(), Font.PLAIN, 20));
+                        if(fontComboBox.getSelectedItem() == "Source Code Pro"){
+                            tf.setFont(sourceCodePro);
+                            t.setFont(sourceCodePro);
+                        }else{
+                            tf.setFont(new Font(fontComboBox.getSelectedItem().toString(), Font.PLAIN, 20));
+                            t.setFont(new Font(fontComboBox.getSelectedItem().toString(), Font.PLAIN, 20));
+                        }
                     }
                 });
 
