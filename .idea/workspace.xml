@@ -7,6 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff36877a-9d55-45be-b84c-a00355b4bb9a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/cqsi/Main/editor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cqsi/Main/editor.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -38,12 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cqsi/Main/editor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="59" column="33" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
-              <folding>
-                <element signature="e#15493#15494#0" expanded="true" />
-                <element signature="e#15573#15574#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="714">
+              <caret line="215" column="80" selection-start-line="215" selection-start-column="80" selection-end-line="215" selection-end-column="80" />
             </state>
           </provider>
         </entry>
@@ -206,7 +203,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20971185" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21611527" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -273,12 +270,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cqsi/Main/editor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="59" column="33" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
-          <folding>
-            <element signature="e#15493#15494#0" expanded="true" />
-            <element signature="e#15573#15574#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="714">
+          <caret line="215" column="80" selection-start-line="215" selection-start-column="80" selection-end-line="215" selection-end-column="80" />
         </state>
       </provider>
     </entry>

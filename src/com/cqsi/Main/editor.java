@@ -28,6 +28,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
 
     // Font names
     private final String[] fontnames = {"Consolas", "Source Code Pro"};
+    private Font sourceCodePro;
 
     // Variables
     private boolean saved = false, isLocked = false;
@@ -36,18 +37,8 @@ class editor extends JFrame implements ActionListener, KeyListener {
     private focuslistener foc;
     private String path;
 
-    // Default colors
-    private Color lilac = new Color(187, 97, 154);
-    private Color yellow = new Color(204, 204, 76);
-    private Color darkblue = new Color(106,90,205);
-    private Color darkred = new Color(128,0,0);
-    private Color limegreen = new Color(50,205,50);
-    private Color aqua = new Color(51, 178, 160);
-    private Color purple = new Color(139,0,139);
-
     // Dimensions
     private Dimension d = new Dimension(80,40);
-    private Font sourceCodePro;
 
     // DefaultStyledDocument
     private DefaultStyledDocument doc;
@@ -151,16 +142,16 @@ class editor extends JFrame implements ActionListener, KeyListener {
         mb.add(m3);
         mb.add(m4);
 
-        // making certain words colored
+        // making keywords words colored
         final StyleContext cont = StyleContext.getDefaultStyleContext();
-        final AttributeSet attr = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, lilac);
-        final AttributeSet attrWhite = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, Color.WHITE);
-        final AttributeSet attrYellow = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, yellow);
-        final AttributeSet attrDarkBlue = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, darkblue);
-        final AttributeSet attrDarkRed = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, darkred);
-        final AttributeSet attrLimeGreen = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, limegreen);
-        final AttributeSet attrAqua = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, aqua);
-        final AttributeSet attrPurple = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, purple);
+        final AttributeSet attrLilac = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, new Color(187, 97, 154)); // lilac
+        final AttributeSet attrWhite = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, Color.WHITE); // white
+        final AttributeSet attrYellow = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, new Color(204, 204, 76)); // yellow
+        final AttributeSet attrDarkBlue = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, new Color(106,90,205)); // darkblue
+        final AttributeSet attrDarkRed = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, new Color(128,0,0)); // darkred
+        final AttributeSet attrLimeGreen = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, new Color(50,205,50)); // limegreen
+        final AttributeSet attrAqua = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, new Color(51, 178, 160)); // aqua
+        final AttributeSet attrDarkLilac = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, new Color(139,0,139)); // dark lilac
 
         doc = new DefaultStyledDocument() {
 
@@ -178,7 +169,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
                 while (wordR <= after) {
                     if (wordR == after || String.valueOf(text.charAt(wordR)).matches("\\W")) {
                         if (text.substring(wordL, wordR).matches("(\\W)*(from|import)")) {
-                            setCharacterAttributes(wordL, wordR - wordL, attr, false);
+                            setCharacterAttributes(wordL, wordR - wordL, attrLilac, false);
                         } else if(text.substring(wordL, wordR).matches("(\\W)*(def|or|not|is|while|class|if|in|else|elif|for|del|try|except)")){
                             setCharacterAttributes(wordL, wordR - wordL, attrYellow, false);
                         }else if(text.substring(wordL, wordR).matches("(\\W)*(#)")){
@@ -190,7 +181,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
                         }else if(text.substring(wordL, wordR).matches("(\\W)*(return|lambda)")){
                             setCharacterAttributes(wordL, wordR - wordL, attrAqua, false);
                         }else if(text.substring(wordL, wordR).matches("(\\W)*(__init__)")){
-                            setCharacterAttributes(wordL, wordR - wordL, attrPurple, false);
+                            setCharacterAttributes(wordL, wordR - wordL, attrDarkLilac, false);
                         }else {
                             setCharacterAttributes(wordL, wordR - wordL, attrWhite, false);
                         }
@@ -210,7 +201,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
                 int after = cm.findFirstNonWordChar(text, offs);
 
                 if (text.substring(before, after).matches("(\\W)*(from|import)")) {
-                    setCharacterAttributes(before, after - before, attr, false);
+                    setCharacterAttributes(before, after - before, attrLilac, false);
                 }else if (text.substring(before, after).matches("(\\W)*(def|or|not|is|while|class|if|in|else|elif|for|del|try|except)")) {
                     setCharacterAttributes(before, after - before, attrYellow, false);
                 }else if (text.substring(before, after).matches("(\\W)*(#)")) {
@@ -222,7 +213,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
                 }else if (text.substring(before, after).matches("(\\W)*(return|lambda)")) {
                     setCharacterAttributes(before, after - before, attrAqua, false);
                 }else if (text.substring(before, after).matches("(\\W)*(__init__)")) {
-                    setCharacterAttributes(before, after - before, attrPurple, false);
+                    setCharacterAttributes(before, after - before, attrDarkLilac, false);
                 }else {
                     setCharacterAttributes(before, after - before, attrWhite, false);
                 }
