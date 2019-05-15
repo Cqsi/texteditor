@@ -47,6 +47,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
     public editor()
     {
 
+        // import Source Code Pro font
         try {
             sourceCodePro = Font.createFont(Font.TRUETYPE_FONT, new File("C:\\Users\\Capsimir\\Desktop\\texteditor\\res\\fonts\\SourceCodePro-Regular.ttf"));
             sourceCodePro = sourceCodePro.deriveFont(20.0f);
@@ -155,7 +156,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
 
         doc = new DefaultStyledDocument() {
 
-            // method
+            // coloring keywords method
             public void insertString(int offset, String str, AttributeSet a) throws BadLocationException {
                 super.insertString(offset, str, a);
 
@@ -191,7 +192,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
                 }
             }
 
-            //method
+            /// coloring keywords method
             public void remove (int offs, int len) throws BadLocationException {
                 super.remove(offs, len);
 
@@ -258,9 +259,6 @@ class editor extends JFrame implements ActionListener, KeyListener {
     {
         String s = e.getActionCommand();
 
-
-        // Create an object of JFileChooser class
-        //JFileChooser j = new JFileChooser("f:");
         JFileChooser j;
 
         // Invoke the showsOpenDialog function to show the save dialog
@@ -390,6 +388,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
                         fontComboBox.setSelectedIndex(0);
                     }
                 });
+
                 JButton applySettings = new JButton("Apply");
                 applySettings.addActionListener(new ActionListener() {
                     @Override
@@ -436,6 +435,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
         if(e.getKeyCode() == KeyEvent.VK_ENTER){
             if(foc.isTfbool()){
 
+                // checking for commands
                 String command = tf.getText();
 
                 switch (command) {
@@ -523,7 +523,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {}
 
-
+    // save the file
     private void save(boolean isRun){
 
         if(!isLocked){
@@ -629,6 +629,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
         }
     }
 
+    // lock the file
     private void lock(){
         path = m.getPath();
 
@@ -644,6 +645,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
         }
     }
 
+    // unlock the file
     private void unlock(){
         if(isLocked){
             isLocked = false;
