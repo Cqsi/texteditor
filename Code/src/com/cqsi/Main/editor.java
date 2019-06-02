@@ -43,7 +43,6 @@ class editor extends JFrame implements ActionListener, KeyListener {
     // DefaultStyledDocument
     private DefaultStyledDocument doc;
 
-    // Constructor
     public editor()
     {
 
