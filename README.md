@@ -3,6 +3,8 @@
 Python text editor made in Java.  Essentially it works by making a text editor in Java, 
 then saving the file with .py extension and then just opens it. It automatically opens in the command prompt.
 
+![Simple square function in Python in the editor](https://github.com/Cqsi/texteditor/blob/master/Screenshots/github.PNG)
+
 I built in some extra commands for running, saving etc.
 Please star if you enjoy. 
 
