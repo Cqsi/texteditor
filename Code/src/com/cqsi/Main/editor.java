@@ -61,7 +61,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
         foc = new focuslistener();
 
         // Create a frame
-        f = new JFrame("Casimirs Text Editor");
+        f = new JFrame("Python Text Editor");
 
         try {
             // Set metl look and feel
