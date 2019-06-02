@@ -48,7 +48,7 @@ class editor extends JFrame implements ActionListener, KeyListener {
 
         // import Source Code Pro font
         try {
-            sourceCodePro = Font.createFont(Font.TRUETYPE_FONT, new File("C:\\Users\\Capsimir\\Desktop\\texteditor\\res\\fonts\\SourceCodePro-Regular.ttf"));
+            sourceCodePro = Font.createFont(Font.TRUETYPE_FONT, new File("C:\\Users\\Capsimir\\Desktop\\texteditor\\Code\\res\\fonts\\SourceCodePro-Regular.ttf"));
             sourceCodePro = sourceCodePro.deriveFont(20.0f);
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             ge.registerFont(sourceCodePro);
