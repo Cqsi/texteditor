@@ -136,11 +136,22 @@ class editor extends JFrame implements ActionListener, KeyListener {
         settings.addActionListener(this);
         help.addActionListener(this);
 
+        JMenu m5 = new JMenu("Terminal");
+
+        JMenuItem cmd = new JMenuItem("CMD");
+        JMenuItem git_bash = new JMenuItem("Git Bash");
+        m5.add(cmd);
+        m5.add(git_bash);
+
+        cmd.addActionListener(this);
+        git_bash.addActionListener(this);
+
         // adding all menus
         mb.add(m1);
         mb.add(m2);
         mb.add(m3);
         mb.add(m4);
+        mb.add(m5);
 
         // making keywords words colored
         final StyleContext cont = StyleContext.getDefaultStyleContext();
@@ -411,9 +422,22 @@ class editor extends JFrame implements ActionListener, KeyListener {
                 dialog.setResizable(false);
                 dialog.setLocationRelativeTo(null);
                 dialog.setVisible(true);
+            case "CMD":
+                try {
+                    Desktop.getDesktop().open(new File("C:\\Windows\\system32\\cmd.exe"));
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                break;
 
-            default:
-
+            case "Git Bash":
+                try {
+                    Desktop.getDesktop().open(new File("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Git\\Git Bash.lnk"));
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                break;
+                default:
         }
     }
 
